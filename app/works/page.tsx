@@ -1,9 +1,9 @@
-import WokrView from '@/components/WorkView';
+import WorkView from '@/components/view/WorkView';
 
 export default function Works() {
   return (
     <>
-      <WokrView />
+      <WorkView />
     </>
   );
 }

@@ -29,29 +29,30 @@ export default function SlideShow({ imgArr, height, width }: SlideShowProps) {
   };
 
   const variants = {
-    translucent: { opacity: 0.2 },
-    opacity: { opacity: 0.5, backgroundColor: '#1fddad' },
+    translucent: { opacity: 0.3 },
+    opacity: { opacity: 0.6, backgroundColor: '#1fddad' },
   };
 
   const bottomButtons = () => {
     let result = [] as React.ReactNode[];
     result.push(
       <motion.div
-        initial={{ opacity: 0.2 }}
-        whileHover={{ opacity: 0.5, borderColor: '#1fddad' }}
-        whileTap={{ opacity: 0.7, borderColor: '#1fddad' }}
-        className='h-4 w-4 border-t-8 border-r-8 border-black cursor-pointer rotate-[225deg] z-10'
+        key={0}
+        initial={{ opacity: 0.3 }}
+        whileHover={{ opacity: 0.6, borderColor: '#1fddad' }}
+        whileTap={{ opacity: 0.8, borderColor: '#1fddad' }}
+        className='h-3 w-3 border-t-4 border-r-4 border-black cursor-pointer rotate-[225deg] z-10 mr-3'
         onClick={() => handleChangeImg(-2)}
       />,
     );
-    for (let i = 0; i < count; i++) {
+    for (let i = 1; i < count + 1; i++) {
       result.push(
         <motion.div
           key={i}
           onClick={() => handleChangeImg(i)}
-          className='h-4 w-4 rounded-full bg-black cursor-pointer z-10 mx-3'
-          initial={{ opacity: 0.2 }}
-          animate={currentImg === i ? 'opacity' : 'translucent'}
+          className='h-2 w-2 rounded-full bg-black cursor-pointer z-10 mx-2'
+          initial={{ opacity: 0.3 }}
+          animate={currentImg === i - 1 ? 'opacity' : 'translucent'}
           variants={variants}
           transition={{ ease: 'easeInOut', duration: 0.4 }}
         />,
@@ -59,10 +60,11 @@ export default function SlideShow({ imgArr, height, width }: SlideShowProps) {
     }
     result.push(
       <motion.div
-        initial={{ opacity: 0.2 }}
-        whileHover={{ opacity: 0.5, borderColor: '#1fddad' }}
-        whileTap={{ opacity: 0.7, borderColor: '#1fddad' }}
-        className='h-4 w-4 border-t-8 border-r-8 border-black cursor-pointer rotate-45 z-10'
+        key={count + 1}
+        initial={{ opacity: 0.3 }}
+        whileHover={{ opacity: 0.6, borderColor: '#1fddad' }}
+        whileTap={{ opacity: 0.8, borderColor: '#1fddad' }}
+        className='h-3 w-3 border-t-4 border-r-4 border-black cursor-pointer rotate-45 z-10 ml-3'
         onClick={() => handleChangeImg(-1)}
       />,
     );
@@ -72,7 +74,7 @@ export default function SlideShow({ imgArr, height, width }: SlideShowProps) {
   return (
     <div className={`flex flex-col justify-center items-center h-full w-full relative`}>
       <Image className='border-[1px]' src={imgArr[currentImg]} alt='SlideShow' width={width} height={height} />
-      <div className='flex items-center mt-2'>{bottomButtons()}</div>
+      <div className='absolute bottom-2 flex items-center mt-2'>{bottomButtons()}</div>
     </div>
   );
 }

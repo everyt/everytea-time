@@ -1,8 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { useRouter } from 'next/navigation';
 import SlideShow from './SlideShow';
 
 type WorkInfoProps = {
@@ -19,21 +17,15 @@ type WorkInfoProps = {
 // 디스코드 참고
 
 export default function WorkInfo({ gitLink, deployLink, workImg, workName, workLore, children }: WorkInfoProps) {
-  const router = useRouter();
-
   const hyperlinkTo = (link: string) => {
-    router.push(link);
+    window.open(link);
   };
 
   const workName_firstChar = workName.charAt(0);
   const workName_Chars = workName.slice(1, workName.length);
 
   return (
-    <motion.div
-      className='flex flex-col justify-start items-start p-3 rounded-xl bg-white shadow-xl mx-1 sm:mx-2 md:mx-3 mb-12'
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ ease: 'easeInOut', duration: 2 }}>
+    <div className='flex flex-col justify-start items-start p-3 rounded-xl bg-white shadow-xl mx-1 sm:mx-2 md:mx-3 mb-12'>
       <div className='flex justify-between w-full mb-3'>
         <div className='font-bold text-xl'>
           <span className='text-emerald-500'>{workName_firstChar}</span>
@@ -57,6 +49,6 @@ export default function WorkInfo({ gitLink, deployLink, workImg, workName, workL
       </div>
       <div className='mt-3'>{workLore}</div>
       <div className='font-extralight mt-3'>{children}</div>
-    </motion.div>
+    </div>
   );
 }

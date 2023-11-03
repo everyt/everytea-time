@@ -14,7 +14,7 @@ export default function NavigationBar() {
   return (
     <>
       <motion.div
-        className='fixed min-h-screen min-w-[5vw] flex flex-col justify-start items-center border-r-2 z-50 bg-white/30 backdrop-blur-sm'
+        className='fixed min-h-screen min-w-[5vw] flex flex-col justify-start items-center border-r-2 z-50 bg-white/30 backdrop-blur-sm sm:px-2 md:px-3'
         initial={{ x: -130 }}
         animate={{ x: 0 }}
         transition={{ ease: 'easeOut', duration: 2 }}>
@@ -76,7 +76,7 @@ export default function NavigationBar() {
           <Icon className='py-2 text-stone-700 text-[2.5rem]' icon='mingcute:sun-line' />
         </motion.div>
       </motion.div>
-      <div className='min-h-[100px] min-w-[5vw]' />
+      <div className='min-h-[100px] min-w-[6vw] sm:px-2 md:px-3' />
     </>
   );
 }
