@@ -11,6 +11,10 @@ const config: Config = {
       fontFamily: {
         suit: ['var(--font-suit)'],
       },
+      spacing: {
+        '68': '17rem',
+        '76': '19rem',
+      },
     },
   },
   plugins: [],

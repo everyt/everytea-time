@@ -73,6 +73,47 @@ export default function WorkView() {
                 </div>
               </WorkInfo>
               <WorkInfo
+                gitLink='https://github.com/everyt/princess-script'
+                workImg='/images/PrincessScript.png'
+                workName='프린세스 스크립트'
+                workLore={
+                  <div className='whitespace-pre-wrap'>
+                    <span className='text-emerald-500'>Json</span>
+                    <span>이나 </span>
+                    <span className='text-emerald-500'>Yaml</span>
+                    <span>로는 불가능한 기능을 구현하기 위해서, </span>
+                    <span className='text-emerald-500'>컴파일러</span>
+                    <span>를 직접 작성해보기 위해서 진행한 프로젝트입니다.</span>
+                  </div>
+                }>
+                <div className='whitespace-pre-wrap'>
+                  <span>
+                    컴퓨터 관련 학과를 나오지 못한 저로서는, 프로그래밍 언어가 어떻게 동작하는지 알 길이 막막했습니다.
+                    따라서, 프로그래밍 언어를 처리하는 컴파일러를 이해할 수 있는 것을 목표로 삼고 있었습니다.
+                    <br />때 마침 '내일은 비가 오려나'를 제작하던 도중, 기존의 데이터를 저장하는 파일로는 보다 복잡한
+                    구조를 가진 데이터를 처리하기에는 한계가 있다는 것을 느꼈고, 따라서 예전부터 이해하고자 마음먹고
+                    있었던 컴파일러 구현에 도전한 결과입니다. <br />
+                  </span>
+                  <span className='text-emerald-600'>Node.js</span>
+                  <span>의 패키지로서 구현된 프로젝트는 </span>
+                  <span className='text-emerald-600'>컴파일러의 토큰 파싱 - AST 트리 구성 - 재배열</span>
+                  <span>의 단계로 구성되었고, </span>
+                  <span className='text-emerald-600'>VSCode의 문법 하이라이트 익스텐션</span>
+                  <span>
+                    {' '}
+                    또한 구현되었습니다.
+                    <br />
+                  </span>
+                  <span className='text-emerald-600'>하지만</span>
+                  <span>
+                    {' '}
+                    무척이나 아쉬운 점은, 점차 프로젝트가 진행되면서, 이 프로젝트는 단순하게 스크립트를 파싱하는 정도가
+                    아니라 새 언어를 구현하고자 하는 목적을 가지게 되어 버렸고, 따라서 엄청난 난이도를 가지게 되어
+                    버렸습니다. 현재로서는 나중을 기약하고 있습니다.
+                  </span>
+                </div>
+              </WorkInfo>
+              <WorkInfo
                 gitLink='https://github.com/everyt/everyt-shop-next'
                 workImg={['/images/Shop1.gif', '/images/Shop2.png', '/images/Shop3.png', '/images/Shop4.png']}
                 workName='NEXTEA'
@@ -81,7 +122,9 @@ export default function WorkView() {
                     <span className='text-emerald-500'>Spring</span>
                     <span>기반의 </span>
                     <span className='text-emerald-500'>JPA</span>
-                    <span>을 사용하는 RESTful API 백엔드를 구축해</span>
+                    <span>을 사용하는 </span>
+                    <span className='text-emerald-500'>RESTful API</span>
+                    <span> 백엔드를 구축해</span>
                     <span className='text-emerald-500'> Next.js</span>
                     <span>로 만들어진 프론트엔드와 회원가입, 로그인 등의 통신을 구현한 프로젝트입니다.</span>
                   </div>
@@ -89,10 +132,9 @@ export default function WorkView() {
                 <div className='whitespace-pre-wrap'>
                   <span>
                     홈페이지의 디자인과 구성은 알리익스프레스를 참고했습니다.
-                    <br />
-                    웹의 통신 방법에 대해 자세히 알 수 있었습니다. 특히나{' '}
+                    <br />이 풀 스택 프로젝트를 진행하면서, 웹의 통신 방법에 대해 자세히 알 수 있었습니다. 특히나{' '}
                   </span>
-                  <span className='text-emerald-600'>JPA Securiy</span>
+                  <span className='text-emerald-600'>Spring Securiy</span>
                   <span>에 의한 </span>
                   <span className='text-emerald-600'>csrf token</span>
                   <span>과 </span>
@@ -103,33 +145,55 @@ export default function WorkView() {
                   <span className='text-emerald-600'>세션</span>
                   <span>, </span>
                   <span className='text-emerald-600'>jwt token</span>
-                  <span>이 어떻게 생성되고 어떤 보안방식을 채택했는지에 대한 지식을 습득할 수 있었습니다.</span>
-                </div>
-              </WorkInfo>
-              <WorkInfo
-                gitLink='https://github.com/everyt/react-web-clone1'
-                workImg={[
-                  '/images/React1.png',
-                  '/images/React2.png',
-                  '/images/React3.png',
-                  '/images/React4.png',
-                  '/images/React5.png',
-                ]}
-                workName='리액트 웹 클론'
-                workLore={
-                  <div className='whitespace-pre-wrap'>
-                    <span>HTML과 CSS, JS의 기초를 다지고 나서 유튜브를 보고 따라한 웹 클론 프로젝트입니다.</span>
-                  </div>
-                }>
-                <div className='whitespace-pre-wrap'>
+                  <span>이 어떻게 생성되고 어떻게 암호화되는지, 웹은 어떤 식으로 </span>
+                  <span className='text-emerald-600'>에러</span>
                   <span>
-                    아무것도 모르면서 무작정 코드 한줄 한줄 따라 타이핑하던 그때의 노력 덕분에, 지금 제가 앞으로 나아갈
-                    원동력을 얻었습니다.
+                    를 보여주는지, 다양한 지식을 얻을 수 있었습니다. <br />
+                    또한,
                   </span>
+                  <span className='text-emerald-600'>JAVA의 상속 개념, 캡슐화, 객체지향과 함수지향의 차이</span>
+                  <span>를 비롯한 다양한 머리로만 알던 것들을 직접 체득했습니다.</span>
                 </div>
               </WorkInfo>
             </div>
             <div className='flex min-w-[47vw] min-h-[90vh] flex-col items-baseline content-around justify-start xl:pr-24 lg:pr-20 md:pr-16 sm:pr-8 pr-4'>
+              <WorkInfo
+                gitLink='https://github.com/everyt/jsp_parkingLotManager'
+                workImg={[
+                  '/images/parkingLot1.png',
+                  '/images/parkingLot2.png',
+                  '/images/parkingLot3.png',
+                  '/images/parkingLot4.png',
+                  '/images/parkingLot5.png',
+                ]}
+                workName='주차장 관리 매니저'
+                workLore={
+                  <div className='whitespace-pre-wrap'>
+                    <span className='text-emerald-500'>JSP</span>
+                    <span>를 통해서 </span>
+                    <span className='text-emerald-500'>JDBC</span>
+                    <span>의 MySQL 드라이버로 통신하는 프로젝트입니다.</span>
+                  </div>
+                }>
+                <div className='whitespace-pre-wrap'>
+                  <span>
+                    그린컴퓨터아트학원에서 진행된 강의에서 기초를 다지기 위헤 처음부터 쌓아올린 코드입니다. 이를 통해
+                  </span>
+                  <span className='text-emerald-600'> 전자정부 프레임워크</span>
+                  <span>에서 필요로 하는 </span>
+                  <span className='text-emerald-600'>JAVA</span>
+                  <span>는 물론이고,</span>
+                  <span className='text-emerald-600'>JSP</span>
+                  <span>, </span>
+                  <span className='text-emerald-600'>Tomcat</span>
+                  <span>에 대한 이해도를 높일 수 있었습니다. 또한 </span>
+                  <span className='text-emerald-600'>관계형 데이터베이스</span>
+                  <span>
+                    에서 어떻게 데이터를 구성해야 하는지, 어떤 식으로 값을 참조해야 효율적인지 같은 세부적인 지식을 얻을
+                    수 있었기에 값어치가 크다고 생각합니다.
+                  </span>
+                </div>
+              </WorkInfo>
               <WorkInfo
                 gitLink='https://github.com/everyt/will-it-rain-tomorrow'
                 workImg='/images/WIRT.gif'
@@ -161,26 +225,38 @@ export default function WorkView() {
                   <span>를 기반으로, 해당 운영체제의 </span>
                   <span className='text-emerald-600'>webview2</span>
                   <span> 엔진을 사용하기에 </span>
-                  <span className='text-emerald-600'>electron</span>과는 꽤 차이가 나는 성능 최적화를 보입니다.
+                  <span className='text-emerald-600'>electron</span>
+                  <span>과는 꽤 차이가 나는 성능 최적화를 보입니다.</span>
                 </div>
               </WorkInfo>
               <WorkInfo
-                gitLink='https://github.com/everyt/princess-script'
-                workImg='/images/PrincessScript.png'
-                workName='프린세스 스크립트'
+                gitLink='https://github.com/everyt/react-web-clone1'
+                workImg={[
+                  '/images/React1.png',
+                  '/images/React2.png',
+                  '/images/React3.png',
+                  '/images/React4.png',
+                  '/images/React5.png',
+                ]}
+                workName='리액트 웹 클론'
                 workLore={
-                  <div className='flex items-center'>
-                    <p className='text-emerald-500'>컴파일러</p>
-                    <p>를 직접 작성해보기 위해서 진행한 프로젝트입니다.</p>
+                  <div className='whitespace-pre-wrap'>
+                    <span></span>
+                    <span className='text-emerald-500'>HTML과 CSS, JS</span>
+                    <span>의 기초를 다지고 나서 유튜브를 보고 따라한 </span>
+                    <span className='text-emerald-500'>React</span>
+                    <span>를 사용한 웹 클론 프로젝트입니다.</span>
                   </div>
                 }>
                 <div className='whitespace-pre-wrap'>
                   <span>
-                    컴퓨터 관련 학과를 나오지 못한 저로서는, 프로그래밍 언어가 어떻게 동작하는지 알 길이 막막했습니다.
-                    따라서, 프로그래밍 언어를 처리하는 컴파일러를 이해할 수 있는 것을 목표로 삼고 도전해{' '}
+                    아무것도 모르면서 무작정 코드 한줄 한줄 따라 타이핑하던 그때의 노력 덕분에, 지금 제가 앞으로 나아갈
+                    원동력을 얻었습니다.
+                    <br />
+                    특히 이 때, 어떻게 해야 웹을
                   </span>
-                  <span className='text-emerald-600'>컴파일러의 토큰 파싱 - AST 트리 구성 - 재배열</span>
-                  <span>의 단계를 구현하고, vscode의 문법 확장프로그램 또한 구현했습니다.</span>
+                  <span className='text-emerald-600'> 반응형</span>
+                  <span>으로 제작할 수 있는지에 대한 지식을 상당히 얻었습니다.</span>
                 </div>
               </WorkInfo>
               <WorkInfo
@@ -211,7 +287,12 @@ export default function WorkView() {
                     {' '}
                     이상의 문법을 습득하고, 2차원 배열에서 더 나아가 추상화된 스택을 공부할 수 있는 기반이 생겼습니다.
                     <br />
-                    처음 스택오버플라이에 질문을 남기고 벌벌 떨었었던 기억이 나네요.
+                    처음
+                  </span>
+                  <span className='text-emerald-500'> 스택오버플라이에 질문</span>
+                  <span>
+                    을 남기고 벌벌 떨었었던 기억이 있습니다. 왜냐하면 -6점을 얻은 질문이었으니까요. 덕분에 어떻게 질문을
+                    해야 하는지, 어떻게 글을 써야 하는지에 대한 질문을 스스로에게 항상 하곤 합니다.
                   </span>
                 </div>
               </WorkInfo>

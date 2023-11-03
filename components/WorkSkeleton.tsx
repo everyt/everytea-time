@@ -32,12 +32,12 @@ export default function WorkSkeleton() {
 
     const getChildrenPiece = () => {
       const result = [] as React.ReactNode[];
-      const childrenLength = 2 + Math.floor(Math.random() * 6);
+      const childrenLength = 2 + Math.floor(Math.random() * 8);
 
       for (let i = 0; i < childrenLength - 1; i++) {
         result.push(<div key={i} className='h-4 w-full animate-pulse bg-gray-100 mb-2'></div>);
       }
-      result.push(<div key={childrenLength} className='h-5 w-72 animate-pulse bg-gray-100'></div>);
+      result.push(<div key={childrenLength} className='h-4 w-20 animate-pulse bg-gray-100'></div>);
 
       return result;
     };

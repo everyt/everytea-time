@@ -4,8 +4,6 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 export default function ContactView() {
-  const baseCSS = 'flex items-center m-[0.1rem] border-b-2 rounded-xl p-4 bg-white hover:z-10';
-
   const animation = {
     scale: 1.1,
   };
@@ -28,15 +26,16 @@ export default function ContactView() {
       }
     });
   };
+  const baseCSS = 'flex items-center m-[0.1rem] rounded-xl p-2 bg-white hover:z-10 border-[1px]';
 
   const getButton = (obj: any) => {
     return (
-      <motion.div key={obj.text} className={`${baseCSS} border-${obj.borderColor} ${obj.extra}`} whileHover={animation}>
-        <div className={`rounded-md overflow-hidden bg-${obj.adobe}`}>
+      <motion.div key={obj.text} className={`${baseCSS} ${obj.extra}`} whileHover={animation}>
+        <div className={`rounded-md overflow-hidden ${obj.adobe}`}>
           <Image src={`/stacks/${obj.text}.svg`} height={20} width={20} alt='' />
         </div>
-        <span className={`ml-2 text-${obj.textColor}`}>{obj.text}</span>
-        {obj.secondText && <span className={`text-${obj.secondColor}`}>{obj.secondText}</span>}
+        <span className={`ml-2 ${obj.textColor}`}>{obj.text}</span>
+        {obj.secondText && <span className={`${obj.secondColor}`}>{obj.secondText}</span>}
       </motion.div>
     );
   };
@@ -54,50 +53,55 @@ export default function ContactView() {
           everytea.time@gmail.com
         </span>
         <div className='flex mt-3 justify-center'>
-          {[
-            { text: 'Javascript', borderColor: 'yellow-400' },
-            { text: 'Typescript', borderColor: 'blue-500' },
-            { text: 'Java', borderColor: 'orange-500' },
-          ].map((obj) => getButton(obj))}
+          {[{ text: 'Javascript' }, { text: 'Typescript' }, { text: 'Java' }].map((obj) => getButton(obj))}
         </div>
         <div className='flex justify-center'>
           {[
             {
               text: 'My',
-              borderColor: 'orange-700',
-              textColor: 'sky-800',
+              textColor: 'text-sky-800',
               extra: 'font-bold',
               secondText: 'SQL',
-              secondColor: 'orange-400',
+              secondColor: 'text-orange-400',
             },
-            { text: 'MariaDB', borderColor: 'orange-700' },
-            { text: 'FireBase', borderColor: 'yellow-400' },
+            { text: 'MariaDB' },
+            { text: 'FireBase' },
           ].map((obj) => getButton(obj))}
         </div>
         <div className='flex justify-center'>
           {[
-            { text: 'React', borderColor: 'gray-700', textColor: 'sky-500', extra: 'font-bold' },
-            { text: 'Next.js', borderColor: 'slate-500' },
-            { text: 'Svelte', borderColor: 'red-500', secondText: 'Kit', secondColor: 'slate-400' },
-            { text: 'Spring', borderColor: 'lime-500', secondText: 'Boot', secondColor: 'lime-700' },
+            { text: 'React', textColor: 'text-sky-500', extra: 'font-bold' },
+            { text: 'Next.js' },
+            { text: 'Svelte', secondText: 'Kit', secondColor: 'text-slate-400' },
+            { text: 'Spring', secondText: 'Boot', secondColor: 'text-lime-700' },
           ].map((obj) => getButton(obj))}
         </div>
         <div className='flex justify-center'>
           {[
-            { text: 'Premiere Pro', borderColor: 'purple-600', textColor: 'purple-950', adobe: 'purple-300' },
-            { text: 'After Effects', borderColor: 'violet-600', textColor: 'violet-950', adobe: 'violet-300' },
+            {
+              text: 'Premiere Pro',
+              textColor: 'text-purple-950',
+              adobe: 'bg-purple-300',
+            },
+            {
+              text: 'After Effects',
+              textColor: 'violet-950',
+              adobe: 'bg-violet-300',
+            },
           ].map((obj) => getButton(obj))}
         </div>
         <div className='flex justify-center'>
           {[
-            { text: 'Photoshop', borderColor: 'sky-500', textColor: 'sky-950', adobe: 'sky-400' },
-            { text: 'Illustrator', borderColor: 'orange-500', textColor: 'orange-950', adobe: 'orange-400' },
+            { text: 'Photoshop', textColor: 'text-sky-950', adobe: 'bg-sky-400' },
+            {
+              text: 'Illustrator',
+              textColor: 'text-orange-950',
+              adobe: 'bg-orange-400',
+            },
           ].map((obj) => getButton(obj))}
         </div>
         <div className='flex justify-center'>
-          {[{ text: 'Blender', borderColor: 'orange-400', textColor: 'sky-700', extra: 'font-bold' }].map((obj) =>
-            getButton(obj),
-          )}
+          {[{ text: 'Blender', textColor: 'text-sky-700', extra: 'font-bold' }].map((obj) => getButton(obj))}
         </div>
       </main>
     </>
