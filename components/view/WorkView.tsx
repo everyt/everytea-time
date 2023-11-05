@@ -4,6 +4,7 @@ import WorkInfo from '@/components/WorkInfo';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import WorkSkeletonView from './WorkSkeletonView';
+import ReadGuide from '../ReadGuide';
 
 export default function WorkView() {
   const [isMount, setIsMount] = useState(false);
@@ -12,7 +13,7 @@ export default function WorkView() {
     if (!isMount) {
       setTimeout(() => {
         setIsMount(true);
-      }, 3500);
+      }, 4200);
     }
   }, []);
 
@@ -29,7 +30,7 @@ export default function WorkView() {
         initial={{ opacity: 1 }}
         animate={{ opacity: 0 }}
         transition={{ ease: 'easeInOut', duration: 2.5 }}>
-        Everytea
+        Projects
       </motion.div>
       <motion.div
         className='flex min-w-[95vw] min-h-[90vh] flex-row xl:py-24 lg:py-20 md:py-16 sm:py-8 py-4'
@@ -38,8 +39,15 @@ export default function WorkView() {
         transition={{ ease: 'easeInOut', duration: 4 }}>
         {isMount ? (
           <>
-            <div className='flex min-w-[47vw] min-h-[90vh] flex-col items-baseline content-around justify-start xl:pl-20 lg:pl-16 md:pl-12 sm:pl-8 pl-4'>
+            <div className='flex min-w-[47vw] min-h-[90vh] flex-col items-baseline content-around justify-start xl:pl-20 lg:pl-16 md:pl-12 sm:pl-8 pl-4 z-[1]'>
+              <div className='flex justify-start items-center mb-12 font-black text-3xl md:text-4xl lg:text-5xl'>
+                <div className='whitespace-pre-wrap'>
+                  <span className='text-red-400'>프</span>
+                  <span className='tracking-tight'>로젝트 리스트 ↓</span>
+                </div>
+              </div>
               <WorkInfo
+                index={1}
                 gitLink='https://github.com/everyt/nextagram'
                 deployLink='https://everyt-1412.vercel.app/'
                 workImg='/images/Nextagram.webp'
@@ -73,6 +81,7 @@ export default function WorkView() {
                 </div>
               </WorkInfo>
               <WorkInfo
+                index={3}
                 gitLink='https://github.com/everyt/princess-script'
                 workImg='/images/PrincessScript.png'
                 workName='프린세스 스크립트'
@@ -114,6 +123,7 @@ export default function WorkView() {
                 </div>
               </WorkInfo>
               <WorkInfo
+                index={5}
                 gitLink='https://github.com/everyt/everyt-shop-next'
                 workImg={['/images/Shop1.gif', '/images/Shop2.png', '/images/Shop3.png', '/images/Shop4.png']}
                 workName='NEXTEA'
@@ -131,7 +141,6 @@ export default function WorkView() {
                 }>
                 <div className='whitespace-pre-wrap'>
                   <span>
-                    홈페이지의 디자인과 구성은 알리익스프레스를 참고했습니다.
                     <br />이 풀 스택 프로젝트를 진행하면서, 웹의 통신 방법에 대해 자세히 알 수 있었습니다. 특히나{' '}
                   </span>
                   <span className='text-emerald-600'>Spring Securiy</span>
@@ -152,114 +161,18 @@ export default function WorkView() {
                     또한,
                   </span>
                   <span className='text-emerald-600'>JAVA의 상속 개념, 캡슐화, 객체지향과 함수지향의 차이</span>
-                  <span>를 비롯한 다양한 머리로만 알던 것들을 직접 체득했습니다.</span>
-                </div>
-              </WorkInfo>
-            </div>
-            <div className='flex min-w-[47vw] min-h-[90vh] flex-col items-baseline content-around justify-start xl:pr-24 lg:pr-20 md:pr-16 sm:pr-8 pr-4'>
-              <WorkInfo
-                gitLink='https://github.com/everyt/jsp_parkingLotManager'
-                workImg={[
-                  '/images/parkingLot1.png',
-                  '/images/parkingLot2.png',
-                  '/images/parkingLot3.png',
-                  '/images/parkingLot4.png',
-                  '/images/parkingLot5.png',
-                ]}
-                workName='주차장 관리 매니저'
-                workLore={
-                  <div className='whitespace-pre-wrap'>
-                    <span className='text-emerald-500'>JSP</span>
-                    <span>를 통해서 </span>
-                    <span className='text-emerald-500'>JDBC</span>
-                    <span>의 MySQL 드라이버로 통신하는 프로젝트입니다.</span>
-                  </div>
-                }>
-                <div className='whitespace-pre-wrap'>
+                  <span>를 비롯한 다양한 머리로만 알던 것들을 직접 체득했습니다. 그리고 </span>
+                  <span className='text-emerald-600'>Prettier</span>
+                  <span>와 </span>
+                  <span className='text-emerald-600'>ESLint</span>
                   <span>
-                    그린컴퓨터아트학원에서 진행된 강의에서 기초를 다지기 위헤 처음부터 쌓아올린 코드입니다. 이를 통해
-                  </span>
-                  <span className='text-emerald-600'> 전자정부 프레임워크</span>
-                  <span>에서 필요로 하는 </span>
-                  <span className='text-emerald-600'>JAVA</span>
-                  <span>는 물론이고,</span>
-                  <span className='text-emerald-600'>JSP</span>
-                  <span>, </span>
-                  <span className='text-emerald-600'>Tomcat</span>
-                  <span>에 대한 이해도를 높일 수 있었습니다. 또한 </span>
-                  <span className='text-emerald-600'>관계형 데이터베이스</span>
-                  <span>
-                    에서 어떻게 데이터를 구성해야 하는지, 어떤 식으로 값을 참조해야 효율적인지 같은 세부적인 지식을 얻을
-                    수 있었기에 값어치가 크다고 생각합니다.
+                    를 사용하면서, 팀원간의 소통이 왜 중요하고 코딩 스타일의 통일이 중요한지도 조금이나마 알게
+                    되었습니다. 앞으로 팀 프로젝트를 진행할 기회가 생긴다면 이러한 점을 적극적으로 반영하려고 합니다.
                   </span>
                 </div>
               </WorkInfo>
               <WorkInfo
-                gitLink='https://github.com/everyt/will-it-rain-tomorrow'
-                workImg='/images/WIRT.gif'
-                workName='내일은 비가 오려나'
-                workLore={
-                  <div className='whitespace-pre-wrap'>
-                    <span className='text-emerald-500'>Tauri</span>
-                    <span>를 이용해 </span>
-                    <span className='text-emerald-500'>Next.js</span>
-                    <span>로 게임의 일종인 비주얼 노벨을 구현 시도한 프로젝트입니다.</span>
-                  </div>
-                }>
-                <div className='whitespace-pre-wrap'>
-                  <span>
-                    개발이 복잡한 네이티브 앱에 비해서 프론트엔드 웹의 형태를 그대로 앱으로 옮길 수 있다는 것에서 큰
-                    매력을 느꼈습니다. <br />
-                    또한, 웹 그 자체이다 보니
-                  </span>
-                  <span className='text-emerald-600'> Redux</span>
-                  <span>나 </span>
-                  <span className='text-emerald-600'>react-animated-cursor</span>
-                  <span>같은 라이브러리를 그대로 사용할 수 있었기 때문에, 안드로이드와 IOS를 지원하는 </span>
-                  <span className='text-emerald-600'>v2</span>
-                  <span>
-                    으로의 정식 업데이트가 이루어진다면 상당한 편의성을 가질 것으로 보입니다. <br />
-                    게다가{' '}
-                  </span>
-                  <span className='text-emerald-600'>rust</span>
-                  <span>를 기반으로, 해당 운영체제의 </span>
-                  <span className='text-emerald-600'>webview2</span>
-                  <span> 엔진을 사용하기에 </span>
-                  <span className='text-emerald-600'>electron</span>
-                  <span>과는 꽤 차이가 나는 성능 최적화를 보입니다.</span>
-                </div>
-              </WorkInfo>
-              <WorkInfo
-                gitLink='https://github.com/everyt/react-web-clone1'
-                workImg={[
-                  '/images/React1.png',
-                  '/images/React2.png',
-                  '/images/React3.png',
-                  '/images/React4.png',
-                  '/images/React5.png',
-                ]}
-                workName='리액트 웹 클론'
-                workLore={
-                  <div className='whitespace-pre-wrap'>
-                    <span></span>
-                    <span className='text-emerald-500'>HTML과 CSS, JS</span>
-                    <span>의 기초를 다지고 나서 유튜브를 보고 따라한 </span>
-                    <span className='text-emerald-500'>React</span>
-                    <span>를 사용한 웹 클론 프로젝트입니다.</span>
-                  </div>
-                }>
-                <div className='whitespace-pre-wrap'>
-                  <span>
-                    아무것도 모르면서 무작정 코드 한줄 한줄 따라 타이핑하던 그때의 노력 덕분에, 지금 제가 앞으로 나아갈
-                    원동력을 얻었습니다.
-                    <br />
-                    특히 이 때, 어떻게 해야 웹을
-                  </span>
-                  <span className='text-emerald-600'> 반응형</span>
-                  <span>으로 제작할 수 있는지에 대한 지식을 상당히 얻었습니다.</span>
-                </div>
-              </WorkInfo>
-              <WorkInfo
+                index={7}
                 gitLink='https://github.com/everyt/Tetris'
                 deployLink='https://everyt.github.io/Tetris/'
                 workImg='/images/Tetris.gif'
@@ -294,6 +207,119 @@ export default function WorkView() {
                     을 남기고 벌벌 떨었었던 기억이 있습니다. 왜냐하면 -6점을 얻은 질문이었으니까요. 덕분에 어떻게 질문을
                     해야 하는지, 어떻게 글을 써야 하는지에 대한 질문을 스스로에게 항상 하곤 합니다.
                   </span>
+                </div>
+              </WorkInfo>
+            </div>
+            <div className='flex min-w-[47vw] min-h-[90vh] flex-col items-baseline content-around justify-start xl:pr-24 lg:pr-20 md:pr-16 sm:pr-8 pr-4 mt-60'>
+              <div className='flex justify-start items-center mb-12 font-black text-3xl md:text-4xl lg:text-5xl'>
+                <div className='whitespace-pre-wrap'>
+                  <span>→↓</span>
+                </div>
+              </div>
+              <WorkInfo
+                index={2}
+                gitLink='https://github.com/everyt/jsp_parkingLotManager'
+                workImg={[
+                  '/images/parkingLot1.png',
+                  '/images/parkingLot2.png',
+                  '/images/parkingLot3.png',
+                  '/images/parkingLot4.png',
+                  '/images/parkingLot5.png',
+                ]}
+                workName='주차장 관리 매니저'
+                workLore={
+                  <div className='whitespace-pre-wrap'>
+                    <span className='text-emerald-500'>JSP</span>
+                    <span>를 통해서 </span>
+                    <span className='text-emerald-500'>JDBC</span>
+                    <span>의 MySQL 드라이버로 통신하는 프로젝트입니다.</span>
+                  </div>
+                }>
+                <div className='whitespace-pre-wrap'>
+                  <span>
+                    그린컴퓨터아트학원에서 진행된 강의에서 기초를 다지기 위헤 처음부터 쌓아올린 코드입니다. 이를 통해
+                  </span>
+                  <span className='text-emerald-600'> 전자정부 프레임워크</span>
+                  <span>에서 필요로 하는 </span>
+                  <span className='text-emerald-600'>JAVA</span>
+                  <span>는 물론이고,</span>
+                  <span className='text-emerald-600'>JSP</span>
+                  <span>, </span>
+                  <span className='text-emerald-600'>Tomcat</span>
+                  <span>에 대한 이해도를 높일 수 있었습니다. 또한 </span>
+                  <span className='text-emerald-600'>관계형 데이터베이스</span>
+                  <span>
+                    에서 어떻게 데이터를 구성해야 하는지, 어떤 식으로 값을 참조해야 DB와의 연결을 최소화할 수 있는지
+                    같은 세부적인 지식을 얻을 수 있었기에 값어치가 크다고 생각합니다.
+                  </span>
+                </div>
+              </WorkInfo>
+              <WorkInfo
+                index={4}
+                gitLink='https://github.com/everyt/will-it-rain-tomorrow'
+                workImg='/images/WIRT.gif'
+                workName='내일은 비가 오려나'
+                workLore={
+                  <div className='whitespace-pre-wrap'>
+                    <span className='text-emerald-500'>Tauri</span>
+                    <span>를 이용해 </span>
+                    <span className='text-emerald-500'>Next.js</span>
+                    <span>로 게임의 일종인 비주얼 노벨을 구현 시도한 프로젝트입니다.</span>
+                  </div>
+                }>
+                <div className='whitespace-pre-wrap'>
+                  <span>
+                    개발이 복잡한 네이티브 앱에 비해서 프론트엔드 웹의 형태를 그대로 앱으로 옮길 수 있다는 것에서 큰
+                    매력을 느꼈습니다. <br />
+                    또한, 웹 그 자체이다 보니
+                  </span>
+                  <span className='text-emerald-600'> Redux</span>
+                  <span>나 </span>
+                  <span className='text-emerald-600'>react-animated-cursor</span>
+                  <span>같은 라이브러리를 그대로 사용할 수 있었기 때문에, 안드로이드와 IOS를 지원하는 </span>
+                  <span className='text-emerald-600'>v2</span>
+                  <span>
+                    으로의 정식 업데이트가 이루어진다면 새로운 앱을 개발하는데에 있어 상당한 편의성을 가질 것으로
+                    보입니다. <br />
+                    게다가{' '}
+                  </span>
+                  <span className='text-emerald-600'>rust</span>
+                  <span>를 기반으로, 해당 운영체제의 </span>
+                  <span className='text-emerald-600'>webview2</span>
+                  <span> 엔진을 사용하기에 </span>
+                  <span className='text-emerald-600'>electron</span>
+                  <span>과는 꽤 차이가 나는 성능 최적화를 보입니다.</span>
+                </div>
+              </WorkInfo>
+              <WorkInfo
+                index={6}
+                gitLink='https://github.com/everyt/react-web-clone1'
+                workImg={[
+                  '/images/React1.png',
+                  '/images/React2.png',
+                  '/images/React3.png',
+                  '/images/React4.png',
+                  '/images/React5.png',
+                ]}
+                workName='리액트 웹 클론'
+                workLore={
+                  <div className='whitespace-pre-wrap'>
+                    <span></span>
+                    <span className='text-emerald-500'>HTML과 CSS, JS</span>
+                    <span>의 기초를 다지고 나서 유튜브를 보고 따라한 </span>
+                    <span className='text-emerald-500'>React</span>
+                    <span>를 사용한 웹 클론 프로젝트입니다.</span>
+                  </div>
+                }>
+                <div className='whitespace-pre-wrap'>
+                  <span>
+                    아무것도 모르면서 무작정 코드 한줄 한줄 따라 타이핑하던 그때의 노력 덕분에, 지금 제가 앞으로 나아갈
+                    원동력을 얻었습니다.
+                    <br />
+                    특히 이 때, 어떻게 해야 웹을
+                  </span>
+                  <span className='text-emerald-600'> 반응형</span>
+                  <span>으로 제작할 수 있는지에 대한 지식을 상당히 얻었습니다.</span>
                 </div>
               </WorkInfo>
             </div>

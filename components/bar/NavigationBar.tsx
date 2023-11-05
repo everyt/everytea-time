@@ -14,7 +14,7 @@ export default function NavigationBar() {
   return (
     <>
       <motion.div
-        className='fixed min-h-screen min-w-[5vw] flex flex-col justify-start items-center z-50 bg-white/30 backdrop-blur-sm sm:px-2 md:px-3'
+        className='fixed min-h-screen min-w-[5vw] flex flex-col justify-start items-center z-50 bg-white/30 backdrop-blur-sm sm:px-2 md:px-3 border-r-[1px] border-stone-400'
         initial={{ x: -130 }}
         animate={{ x: 0 }}
         transition={{ ease: 'easeOut', duration: 2 }}>

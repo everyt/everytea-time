@@ -45,7 +45,7 @@ export default function IntroduceView() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ ease: 'easeInOut', duration: 4 }}>
-          Everytea
+          Projects
         </motion.div>
       )}
       <motion.div
@@ -56,9 +56,9 @@ export default function IntroduceView() {
         <div className='sm:flex mb-8 sm:mb-0'>
           <div className='flex flex-col'>
             <motion.div
-              className='bg-stone-700 absolute z-20'
+              className='bg-stone-700 absolute z-20 rounded-md'
               initial={{ width: 0 }}
-              animate={{ width: 470 }}
+              animate={{ width: 475 }}
               transition={{ ease: 'easeInOut', duration: 1.5 }}>
               <p className='text-5xl px-2 py-1'>&nbsp;</p>
             </motion.div>
@@ -66,9 +66,9 @@ export default function IntroduceView() {
               GWAK TAE WOONG
             </span>
             <motion.div
-              className='bg-stone-700 my-16 absolute z-20'
+              className='bg-stone-700 my-16 absolute z-20 rounded-md'
               initial={{ width: 0 }}
-              animate={{ width: 470 }}
+              animate={{ width: 475 }}
               transition={{ ease: 'easeInOut', duration: 2.5 }}>
               <p className='text-xl'>&nbsp;</p>
             </motion.div>
@@ -77,22 +77,22 @@ export default function IntroduceView() {
             </span>
           </div>
           <motion.div
-            className='bg-stone-700 h-24 w-24 rotate-45 z-20 cursor-poionter ml-44 sm:ml-8'
+            className='bg-stone-700 h-24 w-24 rotate-45 z-20 cursor-poionter ml-44 sm:ml-8 rounded-md'
             initial={{ width: 0 }}
             animate={{ width: 100 }}
             transition={{ ease: 'easeInOut', duration: 2 }}
             onClick={() => hyperlinkTo('/works')}>
             <div className='mt-[1.85rem] rotate-[-45deg] text-stone-50 font-bold text-3xl m pt-6 sm:pt-0 ml-2 sm:ml-0'>
-              Works→
+              Next→
             </div>
           </motion.div>
         </div>
-        <div className='flex items-center text-xl mb-2 ml-3 sm:ml-0'>
+        <div className='flex items-center text-xl mb-1 ml-3 sm:ml-0'>
           <p className='text-black font-bold'>안녕하세요.</p>
           <p>Hello.おはよう.你好.</p>
         </div>
-        <p className='text-stone-500 ml-2 sm:ml-0'>
-          어제보다 한걸음, 그 다음에는 두걸음 더 나아가는 개발자가 되고 싶습니다.
+        <p className='text-stone-500 ml-2 sm:ml-0 font-medium'>
+          어제보다 한걸음, 그 다음에는 두걸음 더 나아가는 개발자입니다.
         </p>
       </motion.div>
     </>

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import SlideShow from './SlideShow';
 
 type WorkInfoProps = {
+  index: number;
   gitLink: string;
   deployLink?: string;
   workImg: string | string[];
@@ -16,7 +17,7 @@ type WorkInfoProps = {
 // 드래그로 팅기거나 스크롤로 팅겨도 돌아가게끔
 // 디스코드 참고
 
-export default function WorkInfo({ gitLink, deployLink, workImg, workName, workLore, children }: WorkInfoProps) {
+export default function WorkInfo({ index, gitLink, deployLink, workImg, workName, workLore, children }: WorkInfoProps) {
   const hyperlinkTo = (link: string) => {
     window.open(link);
   };
@@ -25,9 +26,10 @@ export default function WorkInfo({ gitLink, deployLink, workImg, workName, workL
   const workName_Chars = workName.slice(1, workName.length);
 
   return (
-    <div className='flex flex-col justify-start items-start p-3 rounded-xl bg-white shadow-xl mx-1 sm:mx-2 md:mx-3 mb-12'>
+    <div className='flex flex-col justify-start items-start p-3 rounded-xl bg-white shadow-xl sm:mx-2 md:mx-3 mb-12'>
       <div className='flex justify-between w-full mb-3'>
         <div className='font-bold text-xl'>
+          <span>{index}. </span>
           <span className='text-emerald-500'>{workName_firstChar}</span>
           <span>{workName_Chars}</span>
         </div>

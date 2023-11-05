@@ -15,7 +15,7 @@ export default function WorkSkeleton() {
     );
 
     const prePiece2 = (
-      <Image className='animate-pulse bg-gray-100 mb-4' src='/blank.svg' alt='' width={1920} height={1080} />
+      <Image className='animate-pulse bg-gray-100 mb-4' src='/svg/blank.svg' alt='' width={1920} height={1080} />
     );
 
     const getLorePiece = () => {

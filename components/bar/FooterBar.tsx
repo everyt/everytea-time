@@ -8,7 +8,7 @@ export default function FooterBar() {
   return (
     <>
       <motion.div
-        className='fixed left-0 min-h-[10vh] min-w-[100vw] flex flex-row-reverse justify-start items-center z-50 sm:z-40 bg-white/30 backdrop-blur-sm'
+        className='fixed left-0 min-h-[10vh] min-w-[100vw] flex flex-row-reverse justify-start items-center z-50 sm:z-40 bg-white/30 backdrop-blur-sm border-t-[1px] border-stone-400'
         initial={{ bottom: -130 }}
         animate={{ bottom: 0 }}
         transition={{ ease: 'easeInOut', duration: 2 }}>

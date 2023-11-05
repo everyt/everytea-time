@@ -1,9 +1,11 @@
 'use client';
 
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, useAnimationControls } from 'framer-motion';
 
 export default function ContactView() {
+  const controls = useAnimationControls();
+
   const animation = {
     scale: 1.1,
   };
@@ -19,9 +21,15 @@ export default function ContactView() {
       const emailElement = document.getElementById('email') as HTMLInputElement;
       const email = emailElement.innerHTML;
       if (email === 'everytea.time@gmail.com') {
-        emailElement.innerHTML = '이메일이 클립보드에 복사되었습니다.';
+        controls.start('change');
         setTimeout(() => {
-          emailElement.innerHTML = email;
+          emailElement.innerHTML = '이메일이 클립보드에 복사되었습니다.';
+        }, 300);
+        setTimeout(() => {
+          controls.start('change');
+          setTimeout(() => {
+            emailElement.innerHTML = email;
+          }, 300);
         }, 2000);
       }
     });
@@ -30,7 +38,7 @@ export default function ContactView() {
 
   const getButton = (obj: any) => {
     return (
-      <motion.div key={obj.text} className={`${baseCSS} ${obj.extra}`} whileHover={animation}>
+      <motion.div key={obj.text} className={`${baseCSS}`} whileHover={animation}>
         <div className={`rounded-md overflow-hidden ${obj.adobe}`}>
           <Image src={`/stacks/${obj.text}.svg`} height={20} width={20} alt='' />
         </div>
@@ -40,18 +48,28 @@ export default function ContactView() {
     );
   };
 
+  const variants = {
+    change: {
+      opacity: [1, 0, 1],
+    },
+  };
+
   return (
     <>
-      <main className='flex w-[80vw] h-[90vh] flex-col items-start justify-center py-24 pt-6'>
-        <span className='font-extrabold text-xl mt-3'>곽태웅</span>
-        <span className='font-extrabold text-xl mt-3'>EveryHongCha ( Everyt )</span>
+      <main className='flex w-[80vw] h-[90vh] flex-col items-start justify-center py-24 pt-32 md:pt-8'>
+        <span className='font-extrabold text-xl mb-2'>곽태웅</span>
         <span className='cursor-pointer' onClick={() => hrefTo('https://github.com/everyt')}>
           https://github.com/everyt
         </span>
         <input id='toCopy' type='hidden' value='everytea.time@gmail.com' readOnly />
-        <span id='email' className='mb-3 cursor-pointer' onClick={copyEmail}>
+        <motion.span
+          id='email'
+          className='mb-3 cursor-pointer'
+          onClick={copyEmail}
+          animate={controls}
+          variants={variants}>
           everytea.time@gmail.com
-        </span>
+        </motion.span>
         <div className='flex mt-3 justify-center'>
           {[{ text: 'Javascript' }, { text: 'Typescript' }, { text: 'Java' }].map((obj) => getButton(obj))}
         </div>
@@ -60,7 +78,6 @@ export default function ContactView() {
             {
               text: 'My',
               textColor: 'text-sky-800',
-              extra: 'font-bold',
               secondText: 'SQL',
               secondColor: 'text-orange-400',
             },
@@ -70,7 +87,7 @@ export default function ContactView() {
         </div>
         <div className='flex justify-center'>
           {[
-            { text: 'React', textColor: 'text-sky-500', extra: 'font-bold' },
+            { text: 'React', textColor: 'text-sky-500' },
             { text: 'Next.js' },
             { text: 'Svelte', secondText: 'Kit', secondColor: 'text-slate-400' },
             { text: 'Spring', secondText: 'Boot', secondColor: 'text-lime-700' },
@@ -101,7 +118,7 @@ export default function ContactView() {
           ].map((obj) => getButton(obj))}
         </div>
         <div className='flex justify-center'>
-          {[{ text: 'Blender', textColor: 'text-sky-700', extra: 'font-bold' }].map((obj) => getButton(obj))}
+          {[{ text: 'Blender', textColor: 'text-sky-700' }].map((obj) => getButton(obj))}
         </div>
       </main>
     </>
