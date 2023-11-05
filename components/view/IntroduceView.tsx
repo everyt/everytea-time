@@ -1,12 +1,16 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useTime, useTransform } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 export default function IntroduceView() {
   const [isLinked, setIsLinked] = useState(false);
   const [fadeIn, setFadeIn] = useState(true);
+
+  const time = useTime();
+  const rotate1 = useTransform(time, [0, 6000], [0, 260], { clamp: false });
+  const rotate2 = useTransform(time, [0, 10000], [0, -260], { clamp: false });
 
   useEffect(() => {
     setTimeout(() => {
@@ -26,6 +30,7 @@ export default function IntroduceView() {
   const variants = {
     move: {
       x: '100vw',
+      transition: { ease: 'linear', duration: 3.3 },
     },
   };
 
@@ -48,13 +53,25 @@ export default function IntroduceView() {
           Projects
         </motion.div>
       )}
-      <motion.div
-        className='flex flex-col'
-        animate={isLinked && 'move'}
-        variants={variants}
-        transition={{ ease: 'easeInOut', duration: 3 }}>
+      <motion.div className='flex flex-col' animate={isLinked && 'move'} variants={variants}>
         <div className='sm:flex mb-8 sm:mb-0'>
           <div className='flex flex-col'>
+            {!isLinked && (
+              <>
+                <motion.div
+                  className='absolute bg-stone-200 h-16 w-16 z-20 cursor-poionter mt-[1.1rem] ml-[36rem] rounded-md'
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: [0, 1] }}
+                  transition={{ ease: 'easeInOut', duration: 2 }}
+                  style={{ rotate: rotate2 }}></motion.div>
+                <motion.div
+                  className='absolute bg-stone-300 h-12 w-12 z-20 cursor-poionter mt-[1.6rem] ml-[39rem] rounded-md'
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: [0, 1] }}
+                  transition={{ ease: 'easeInOut', duration: 2 }}
+                  style={{ rotate: rotate1 }}></motion.div>
+              </>
+            )}
             <motion.div
               className='bg-stone-700 absolute z-20 rounded-md'
               initial={{ width: 0 }}
@@ -76,20 +93,23 @@ export default function IntroduceView() {
               want to become a full-stack developer
             </span>
           </div>
-          <motion.div
-            className='bg-stone-700 h-24 w-24 rotate-45 z-20 cursor-poionter ml-44 sm:ml-8 rounded-md'
-            initial={{ width: 0 }}
-            animate={{ width: 100 }}
-            transition={{ ease: 'easeInOut', duration: 2 }}
+          <div className='relative' onClick={() => hyperlinkTo('/works')}>
+            <motion.div
+              className='absolute bg-stone-700 h-24 w-24 rotate-45 z-20 cursor-poionter ml-44 sm:ml-8 rounded-md'
+              initial={{ width: 0 }}
+              animate={{ width: 100 }}
+              transition={{ ease: 'easeInOut', duration: 2 }}></motion.div>
+          </div>
+          <div
+            className='text-stone-50 mt-[1.875rem] ml-[2.4rem] font-bold text-3xl z-30'
             onClick={() => hyperlinkTo('/works')}>
-            <div className='mt-[1.85rem] rotate-[-45deg] text-stone-50 font-bold text-3xl m pt-6 sm:pt-0 ml-2 sm:ml-0'>
-              Next→
-            </div>
-          </motion.div>
+            Next→
+          </div>
         </div>
         <div className='flex items-center text-xl mb-1 ml-3 sm:ml-0'>
           <p className='text-black font-bold'>안녕하세요.</p>
-          <p>Hello.おはよう.你好.</p>
+          <p>Hello.おはよう.</p>
+          <p className='font-sans'>你好.</p>
         </div>
         <p className='text-stone-500 ml-2 sm:ml-0 font-medium'>
           어제보다 한걸음, 그 다음에는 두걸음 더 나아가는 개발자입니다.
