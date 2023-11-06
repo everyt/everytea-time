@@ -1,11 +1,11 @@
 'use client';
 
-import WorkInfo from '@/components/WorkInfo';
+import WorkInfo from '@/components/work/WorkInfo';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import WorkSkeletonView from './WorkSkeletonView';
 import Image from 'next/image';
-import WorkChart from '../WorkChart';
+import WorkChart from '../work/WorkChart';
 
 export default function WorkView() {
   const [isMount, setIsMount] = useState(false);
@@ -64,25 +64,19 @@ export default function WorkView() {
                   </div>
                 }>
                 <div className='whitespace-pre-wrap'>
-                  <span>컴포넌트의 드릴링이 어떻게 </span>
-                  <span className='text-emerald-600'>Redux</span>
-                  <span>나 </span>
-                  <span className='text-emerald-600'>MobX</span>
                   <span>
+                    컴포넌트의 드릴링이 어떻게
+                    <span className='text-emerald-600'> Redux</span>나<span className='text-emerald-600'> MobX</span>
                     같은 상태관리 라이브러리의 필요성을 불러왔는지에 대해 큰 공감을 느낄 수 있었고, 이런 소규모
                     프로젝트에서는 오히려 그런 비대한 라이브러리의 도입이 오히려 독이 될 수 있다는 점도 배웠습니다.
                     <br />
+                    <span className='text-emerald-600'> Framer-motion</span>의 애니메이션을 통한 반응형 웹 구현부터
+                    <span className='text-emerald-600'> Firebase</span>와
+                    <span className='text-emerald-600'> NextAuth</span>를 통한
+                    <span className='text-emerald-600'> 비관계형 데이터베이스(NoSQL)</span>를 통한 데이터 관리에서부터
+                    목표로 했던 인피니트 스크롤과
+                    <span className='text-emerald-600'> OAuth2 </span>인증을 마무리로 끝낸 프로젝트입니다.
                   </span>
-                  <span className='text-emerald-600'>Framer-motion</span>
-                  <span>의 애니메이션을 통한 반응형 웹 구현부터 </span>
-                  <span className='text-emerald-600'>Firebase</span>
-                  <span>와 </span>
-                  <span className='text-emerald-600'>NextAuth</span>
-                  <span>를 통한 </span>
-                  <span className='text-emerald-600'>비관계형 데이터베이스(NoSQL)</span>
-                  <span>를 통한 데이터 관리에서부터 목표로 했던 인피니트 스크롤과 </span>
-                  <span className='text-emerald-600'>OAuth2</span>
-                  <span> 인증을 마무리로 끝낸 프로젝트입니다.</span>
                 </div>
               </WorkInfo>
               <WorkInfo
@@ -215,8 +209,8 @@ export default function WorkView() {
                 </div>
               </WorkInfo>
             </div>
-            <div className='flex min-w-[47vw] min-h-[90vh] flex-col items-baseline content-around justify-start xl:pr-24 lg:pr-20 md:pr-16 sm:pr-8 pr-4 mt-60'>
-              <div className='flex justify-start items-center mb-12 font-black text-3xl md:text-4xl lg:text-5xl'>
+            <div className='flex min-w-[47vw] min-h-[90vh] flex-col items-baseline content-around justify-start xl:pr-24 lg:pr-20 md:pr-16 sm:pr-8 pr-4 mt-32'>
+              <div className='flex justify-start items-center font-black text-3xl md:text-4xl lg:text-5xl mb-32'>
                 <div className='whitespace-pre-wrap'>
                   <span>→↓</span>
                 </div>

@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
-import WorkChart from '../WorkChart';
-const WorkSkeleton = dynamic(() => import('../WorkSkeleton'), { ssr: false });
+import WorkChart from '../work/WorkChart';
+const WorkSkeleton = dynamic(() => import('../work/WorkSkeleton'), { ssr: false });
 
 export default function WorkSkeletonView() {
   return (
@@ -18,8 +18,8 @@ export default function WorkSkeletonView() {
         <WorkSkeleton />
         <WorkSkeleton />
       </div>
-      <div className='flex min-w-[47vw] min-h-[90vh] flex-col items-baseline content-around justify-start xl:pr-24 lg:pr-20 md:pr-16 sm:pr-8 pr-4 mt-60'>
-        <div className='flex justify-start items-center mb-12 font-black text-3xl md:text-4xl lg:text-5xl'>
+      <div className='flex min-w-[47vw] min-h-[90vh] flex-col items-baseline content-around justify-start xl:pr-24 lg:pr-20 md:pr-16 sm:pr-8 pr-4 mt-32'>
+        <div className='flex justify-start items-center font-black text-3xl md:text-4xl lg:text-5xl mb-32'>
           <div className='whitespace-pre-wrap'>
             <span>→↓</span>
           </div>

@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import SlideShow from './SlideShow';
+import SlideShow from '../common/SlideShow';
 
 type WorkInfoProps = {
   index: number;

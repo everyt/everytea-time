@@ -12,7 +12,7 @@ export default function FooterBar() {
         initial={{ bottom: -130 }}
         animate={{ bottom: 0 }}
         transition={{ ease: 'easeInOut', duration: 2 }}>
-        <Image className='mt-2 mx-8' src='/svg/everytea.svg' width={100} height={100} alt='Everyt' />
+        <Image className='mt-2 mx-8' src='/svg/Everyt.svg' width={100} height={100} alt='Everyt' />
         <p className='text-stone-500 text-xs ml-8'>
           ©2023 Everyt. <br /> All rights reserved.{' '}
         </p>
