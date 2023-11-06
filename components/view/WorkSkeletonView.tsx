@@ -1,4 +1,5 @@
 import dynamic from 'next/dynamic';
+import WorkChart from '../WorkChart';
 const WorkSkeleton = dynamic(() => import('../WorkSkeleton'), { ssr: false });
 
 export default function WorkSkeletonView() {
@@ -6,9 +7,12 @@ export default function WorkSkeletonView() {
     <>
       <div className='flex min-w-[47vw] min-h-[90vh] flex-col items-baseline content-around justify-start xl:pl-20 lg:pl-16 md:pl-12 sm:pl-8 pl-4'>
         <div className='flex justify-start items-center mb-12 font-black text-3xl md:text-4xl lg:text-5xl'>
-          <div className='whitespace-pre-wrap'>
-            <span className='text-red-400'>프</span>
-            <span className='tracking-tight'>로젝트 리스트 ↓</span>
+          <div className='flex items-center'>
+            <div className='whitespace-pre-wrap'>
+              <span className='text-red-400'>프</span>
+              <span className='tracking-tight mr-[1.95rem]'>로젝트 리스트</span>
+              <span>↓</span>
+            </div>
           </div>
         </div>
         <WorkSkeleton />

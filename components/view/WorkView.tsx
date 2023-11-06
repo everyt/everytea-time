@@ -4,7 +4,8 @@ import WorkInfo from '@/components/WorkInfo';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import WorkSkeletonView from './WorkSkeletonView';
-import ReadGuide from '../ReadGuide';
+import Image from 'next/image';
+import WorkChart from '../WorkChart';
 
 export default function WorkView() {
   const [isMount, setIsMount] = useState(false);
@@ -30,7 +31,7 @@ export default function WorkView() {
         initial={{ opacity: 1 }}
         animate={{ opacity: 0 }}
         transition={{ ease: 'easeInOut', duration: 2.5 }}>
-        Projects
+        <Image src='/svg/projects.svg' alt='' width={160} height={160} />
       </motion.div>
       <motion.div
         className='flex min-w-[95vw] min-h-[90vh] flex-row xl:py-24 lg:py-20 md:py-16 sm:py-8 py-4'
@@ -41,9 +42,13 @@ export default function WorkView() {
           <>
             <div className='flex min-w-[47vw] min-h-[90vh] flex-col items-baseline content-around justify-start xl:pl-20 lg:pl-16 md:pl-12 sm:pl-8 pl-4 z-[1]'>
               <div className='flex justify-start items-center mb-12 font-black text-3xl md:text-4xl lg:text-5xl'>
-                <div className='whitespace-pre-wrap'>
-                  <span className='text-red-400'>프</span>
-                  <span className='tracking-tight'>로젝트 리스트 ↓</span>
+                <div className='flex items-center'>
+                  <div className='whitespace-pre-wrap'>
+                    <span className='text-red-400'>프</span>
+                    <span className='tracking-tight mr-[1.95rem]'>로젝트 리스트</span>
+                    <span>↓</span>
+                  </div>
+                  <WorkChart />
                 </div>
               </div>
               <WorkInfo

@@ -1,6 +1,7 @@
 'use client';
 
 import { motion, useTime, useTransform } from 'framer-motion';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
@@ -50,28 +51,25 @@ export default function IntroduceView() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ ease: 'easeInOut', duration: 4 }}>
-          Projects
+          <Image src='/svg/projects.svg' alt='' width={160} height={160} />
         </motion.div>
       )}
       <motion.div className='flex flex-col' animate={isLinked && 'move'} variants={variants}>
         <div className='sm:flex mb-8 sm:mb-0'>
           <div className='flex flex-col'>
-            {!isLinked && (
-              <>
-                <motion.div
-                  className='absolute bg-stone-200 h-16 w-16 z-20 cursor-poionter mt-[1.1rem] ml-[36rem] rounded-md'
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: [0, 1] }}
-                  transition={{ ease: 'easeInOut', duration: 2 }}
-                  style={{ rotate: rotate2 }}></motion.div>
-                <motion.div
-                  className='absolute bg-stone-300 h-12 w-12 z-20 cursor-poionter mt-[1.6rem] ml-[39rem] rounded-md'
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: [0, 1] }}
-                  transition={{ ease: 'easeInOut', duration: 2 }}
-                  style={{ rotate: rotate1 }}></motion.div>
-              </>
-            )}
+            <motion.div
+              className='absolute bg-stone-200 h-16 w-16 z-20 cursor-poionter mt-[1.1rem] ml-[36rem] rounded-md'
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0, 1] }}
+              transition={{ ease: 'easeInOut', duration: 2 }}
+              style={{ rotate: rotate2 }}></motion.div>
+            <motion.div
+              className='absolute bg-stone-300 h-12 w-12 z-20 cursor-poionter mt-[1.6rem] ml-[39rem] rounded-md'
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0, 1] }}
+              transition={{ ease: 'easeInOut', duration: 2 }}
+              style={{ rotate: rotate1 }}></motion.div>
+            <div className='absolute bg-stone-200 h-24 w-24 z-20 cursor-poionter rotate-45 rounded-md' />
             <motion.div
               className='bg-stone-700 absolute z-20 rounded-md'
               initial={{ width: 0 }}
