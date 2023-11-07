@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import SlideShow from '../common/SlideShow';
+import { memo } from 'React';
 
 type WorkInfoProps = {
   index: number;
@@ -17,7 +18,7 @@ type WorkInfoProps = {
 // 드래그로 팅기거나 스크롤로 팅겨도 돌아가게끔
 // 디스코드 참고
 
-export default function WorkInfo({ index, gitLink, deployLink, workImg, workName, workLore, children }: WorkInfoProps) {
+function WorkInfo({ index, gitLink, deployLink, workImg, workName, workLore, children }: WorkInfoProps) {
   const hyperlinkTo = (link: string) => {
     window.open(link);
   };
@@ -54,3 +55,5 @@ export default function WorkInfo({ index, gitLink, deployLink, workImg, workName
     </div>
   );
 }
+
+export default memo(WorkInfo);

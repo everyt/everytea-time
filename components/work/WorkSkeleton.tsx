@@ -1,12 +1,13 @@
 'use client';
 
 import Image from 'next/image';
+import { useMemo, memo } from 'react';
 
-export default function WorkSkeleton() {
+function WorkSkeleton() {
   const generateRandomSkeleton = () => {
     const prePiece1 = (
       <div className='flex flex-row justify-between w-full mb-3'>
-        <div className='h-8 w-40 animate-pulse bg-gray-100' />
+        <div className='h-8 w-20 sm:w-25 md:w-35 lg:w-45 xl:w-50 animate-pulse bg-gray-100' />
         <div className='flex flex-col items-end'>
           <div className='h-4 w-16 animate-pulse bg-gray-100 mb-2 mr-2' />
           <div className='h-4 w-12 animate-pulse bg-gray-100' />
@@ -25,7 +26,11 @@ export default function WorkSkeleton() {
       for (let i = 0; i < loreLength - 1; i++) {
         result.push(<div key={i} className='h-5 w-full animate-pulse bg-gray-100 mb-2'></div>);
       }
-      result.push(<div key={loreLength} className='h-5 w-40 animate-pulse bg-gray-100 mb-6'></div>);
+      result.push(
+        <div
+          key={loreLength}
+          className='h-5 w-20 sm:w-25 md:w-30 lg:w-35 xl:w-40 animate-pulse bg-gray-100 mb-6'></div>,
+      );
 
       return result;
     };
@@ -37,7 +42,9 @@ export default function WorkSkeleton() {
       for (let i = 0; i < childrenLength - 1; i++) {
         result.push(<div key={i} className='h-4 w-full animate-pulse bg-gray-100 mb-2'></div>);
       }
-      result.push(<div key={childrenLength} className='h-4 w-20 animate-pulse bg-gray-100'></div>);
+      result.push(
+        <div key={childrenLength} className='h-4 w-10 sm:w-15 md:w-20 lg:w-25 xl:w-30 animate-pulse bg-gray-100'></div>,
+      );
 
       return result;
     };
@@ -52,5 +59,7 @@ export default function WorkSkeleton() {
     );
   };
 
-  return generateRandomSkeleton();
+  return useMemo(() => generateRandomSkeleton(), []);
 }
+
+export default memo(WorkSkeleton);

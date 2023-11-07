@@ -2,19 +2,19 @@
 
 import WorkInfo from '@/components/work/WorkInfo';
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, memo } from 'react';
 import WorkSkeletonView from './WorkSkeletonView';
 import Image from 'next/image';
 import WorkChart from '../work/WorkChart';
 
-export default function WorkView() {
+function WorkView() {
   const [isMount, setIsMount] = useState(false);
 
   useEffect(() => {
     if (!isMount) {
       setTimeout(() => {
         setIsMount(true);
-      }, 4200);
+      }, 4300);
     }
   }, []);
 
@@ -27,16 +27,16 @@ export default function WorkView() {
         transition={{ ease: 'easeInOut', duration: 7 }}
       />
       <motion.div
-        className='absolute top-[43.3vh] left-[48vw] flex flex-col font-extrabold text-3xl'
+        className='absolute top-[45vh] left-[45vw] flex flex-col font-extrabold text-3xl'
         initial={{ opacity: 1 }}
         animate={{ opacity: 0 }}
         transition={{ ease: 'easeInOut', duration: 2.5 }}>
         <Image src='/svg/projects.svg' alt='' width={160} height={160} />
       </motion.div>
       <motion.div
-        className='flex min-w-[95vw] min-h-[90vh] flex-row xl:py-24 lg:py-20 md:py-16 sm:py-8 py-4'
-        initial={{ x: '-100vw' }}
-        animate={{ x: 0 }}
+        className='flex min-w-[95vw] min-h-[90vh] flex-row justify-between xl:py-24 lg:py-20 md:py-16 sm:py-8 py-4'
+        initial={{ translateX: '-100vw' }}
+        animate={{ translateX: 0 }}
         transition={{ ease: 'easeInOut', duration: 4 }}>
         {isMount ? (
           <>
@@ -65,17 +65,26 @@ export default function WorkView() {
                 }>
                 <div className='whitespace-pre-wrap'>
                   <span>
+                    내비게이션 바에서 게시글을 서버로 업로드하는 모달을 띄우는 복잡한 컴포넌트를 설계하게 되면서,
                     컴포넌트의 드릴링이 어떻게
                     <span className='text-emerald-600'> Redux</span>나<span className='text-emerald-600'> MobX</span>
-                    같은 상태관리 라이브러리의 필요성을 불러왔는지에 대해 큰 공감을 느낄 수 있었고, 이런 소규모
-                    프로젝트에서는 오히려 그런 비대한 라이브러리의 도입이 오히려 독이 될 수 있다는 점도 배웠습니다.
+                    같은 상태관리 라이브러리의 필요성을 불러왔는지에 대해 큰 공감을 느낄 수 있었고, 하지만 실제로 그러한
+                    라이브러리를 적용해 사용해 보니 이런 소규모 프로젝트에서는 오히려 그런 비대한 라이브러리의 도입이
+                    오히려 독이 될 수 있다는 점도 배웠습니다.
                     <br />
-                    <span className='text-emerald-600'> Framer-motion</span>의 애니메이션을 통한 반응형 웹 구현부터
+                    <span className='text-emerald-600'> Framer-motion</span>이라는 사용이 편한 라이브러리의 사용법을
+                    익혀 보다 빠른 웹 애니메이션을 구현할 수 있게 되었고,
                     <span className='text-emerald-600'> Firebase</span>와
                     <span className='text-emerald-600'> NextAuth</span>를 통한
                     <span className='text-emerald-600'> 비관계형 데이터베이스(NoSQL)</span>를 통한 데이터 관리에서부터
-                    목표로 했던 인피니트 스크롤과
-                    <span className='text-emerald-600'> OAuth2 </span>인증을 마무리로 끝낸 프로젝트입니다.
+                    실제로 게시글을 등록하고 삭제하는 등의 구현을 통해 예전부터 궁금해했던 NoSQL DB의 구조에 대해 자세히
+                    알게 되었습니다. 또한 사진과 같은 데이터를 어떻게 서버에 저장하는지도,
+                    <span className='text-emerald-600'> OAuth2 </span>API를 통한 인증이 어떠한 방식으로 이루어 지는지에
+                    대한 윤곽을 잡을 수 있었습니다. (데이터 처리는 NextAuth와 그 플러그인인 @auth/firebase-adapter가 다
+                    하도록 추상화되어 있었기 때문에 너무 복잡했습니다.) 나중에는 어떠한 라이브러리에 의존하지 않고 직접
+                    구현해보고 싶습니다. 또한 Firebase의 무료 일간 트래픽은 생각보다 적었기 떄문에, 최소한의 트래픽으로
+                    사이트를 구현하고 싶었던 저는<span className='text-emerald-600'> 인피니트 스크롤</span>을 구현하려고
+                    했고, 옵저버와 Firebase가 제공하는 API를 사용해 구현할 수 있었습니다.
                   </span>
                 </div>
               </WorkInfo>
@@ -330,3 +339,5 @@ export default function WorkView() {
     </>
   );
 }
+
+export default memo(WorkView);

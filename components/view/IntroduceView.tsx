@@ -30,8 +30,8 @@ export default function IntroduceView() {
 
   const variants = {
     move: {
-      x: '100vw',
-      transition: { ease: 'linear', duration: 3.3 },
+      translateX: '100vw',
+      transition: { ease: 'easeInOut', duration: 3.3 },
     },
   };
 
@@ -100,7 +100,7 @@ export default function IntroduceView() {
           </div>
           <div className='relative' onClick={() => hyperlinkTo('/works')}>
             <motion.div
-              className='absolute bg-stone-700 h-24 w-24 rotate-45 z-20 cursor-poionter ml-44 sm:ml-8 rounded-md'
+              className='absolute bg-stone-700 h-24 w-24 rotate-45 z-20 cursor-pointer ml-20 sm:ml-8 rounded-md'
               initial={{ width: 0 }}
               animate={{ width: 100 }}
               transition={{ ease: 'easeInOut', duration: 2 }}></motion.div>
