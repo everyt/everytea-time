@@ -6,7 +6,7 @@ import { useMemo, memo } from 'react';
 function WorkSkeleton() {
   const generateRandomSkeleton = () => {
     const prePiece1 = (
-      <div className='flex flex-row justify-between w-full mb-3'>
+      <div className='flex justify-between w-full mb-3'>
         <div className='h-8 w-20 sm:w-25 md:w-35 lg:w-45 xl:w-50 animate-pulse bg-gray-100' />
         <div className='flex flex-col items-end'>
           <div className='h-4 w-16 animate-pulse bg-gray-100 mb-2 mr-2' />
@@ -50,7 +50,7 @@ function WorkSkeleton() {
     };
 
     return (
-      <div className='flex flex-col justify-start items-start p-3 rounded-xl bg-white shadow-xl mx-1 sm:mx-2 md:mx-3 mb-12'>
+      <div className='flex flex-col justify-start items-start p-3 rounded-xl bg-white shadow-xl mx-1 sm:mx-2 md:mx-3 mb-12 w-[95%]'>
         {prePiece1}
         {prePiece2}
         {getLorePiece()}

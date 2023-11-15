@@ -47,7 +47,7 @@ export default function IntroduceView() {
       )}
       {isLinked && (
         <motion.div
-          className='absolute top-[43.3vh] left-[48vw] flex flex-col font-extrabold text-3xl'
+          className='fixed top-[43.3vh] left-[48vw] flex flex-col'
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ ease: 'easeInOut', duration: 4 }}>

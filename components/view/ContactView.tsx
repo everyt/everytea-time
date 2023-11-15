@@ -163,14 +163,8 @@ export default function ContactView() {
             { text: 'React', textColor: 'text-sky-500', href: 'https://legacy.reactjs.org/' },
             { text: 'Next.js', href: 'https://nextjs.org/' },
             {
-              text: 'Svelte',
-              secondText: 'Kit',
-              secondColor: 'text-slate-400',
-              href: 'https://kit.svelte.dev/',
-            },
-            {
               text: 'Spring',
-              secondText: 'Boot',
+              secondText: '~Boot',
               secondColor: 'text-lime-700',
               href: 'https://spring.io/projects/spring-boot',
             },

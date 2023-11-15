@@ -27,10 +27,10 @@ function WorkView() {
         transition={{ ease: 'easeInOut', duration: 7 }}
       />
       <motion.div
-        className='absolute top-[45vh] left-[45vw] flex flex-col font-extrabold text-3xl'
+        className='fixed top-[43.3vh] left-[48vw] flex flex-col'
         initial={{ opacity: 1 }}
         animate={{ opacity: 0 }}
-        transition={{ ease: 'easeInOut', duration: 2.5 }}>
+        transition={{ ease: 'easeInOut', duration: 4 }}>
         <Image src='/svg/projects.svg' alt='' width={160} height={160} />
       </motion.div>
       <motion.div
@@ -51,8 +51,128 @@ function WorkView() {
                   <WorkChart />
                 </div>
               </div>
+
               <WorkInfo
-                index={1}
+                index={3}
+                gitLink='https://github.com/everyt/jsp_parkingLotManager'
+                workImg={
+                  [
+                    '/images/parkingLot1.png',
+                    '/images/parkingLot2.png',
+                    '/images/parkingLot3.png',
+                    '/images/parkingLot4.png',
+                    '/images/parkingLot5.png',
+                  ] /** 이미지 크기 세로로 줄일 것, 잘라서. */
+                }
+                workName='주차장 관리 매니저'
+                workLore={
+                  <div className='whitespace-pre-wrap'>
+                    <span>
+                      <span className='text-emerald-500'>JSP</span>를 기반으로 MVC의 구현 없이 DB와 통신하는 원시적인
+                      페이지입니다.
+                    </span>
+                  </div>
+                }>
+                <div className='whitespace-pre-wrap text-md font-normal'>
+                  <span>
+                    <span>
+                      <span className='text-red-400'>Goal:</span> 고도로 추상화되어있는 현대의{' '}
+                      <span className='text-emerald-600'>Java Spring</span>을 이해하기 위해 그 기술이 어디서 시작되었고,
+                      어떻게 구성되었는지 알아보고자 함.
+                    </span>
+                    <br />
+                    <span>
+                      <span className='text-red-400'>Stacks:</span> JSP, JDBC
+                    </span>
+                    <br />
+                    <span>
+                      <span className='text-red-400'>TrobuleShooting:</span>
+                      <br />
+                      1. JS의 사용에 상당한 제약이 뒤따름: JS 하나만으로는 서버와의 통신도 불가능하고, 무언가 액션을
+                      취하려면 무조건 페이지를 변경해야 했습니다. 따라서 스프링을 사용하지 않는 선에서 알고 있는 지식을
+                      최대한 짜내 JSP에서의 Java와 병행했습니다. <br />
+                      2.
+                    </span>
+                  </span>
+                </div>
+              </WorkInfo>
+              <WorkInfo
+                index={5}
+                gitLink='https://github.com/everyt/will-it-rain-tomorrow'
+                workImg='/images/WIRT.gif'
+                workName='내일은 비가 오려나'
+                workLore={
+                  <div className='whitespace-pre-wrap'>
+                    <span className='text-emerald-500'>Tauri</span>
+                    <span>를 이용해 </span>
+                    <span className='text-emerald-500'>Next.js</span>
+                    <span>로 게임의 일종인 비주얼 노벨을 구현 시도한 프로젝트입니다.</span>
+                  </div>
+                }>
+                <div className='whitespace-pre-wrap'>
+                  <span>
+                    개발이 복잡한 네이티브 앱에 비해서 프론트엔드 웹의 형태를 그대로 앱으로 옮길 수 있다는 것에서 큰
+                    매력을 느꼈습니다. <br />
+                    또한, 웹 그 자체이다 보니
+                  </span>
+                  <span className='text-emerald-600'> Redux</span>
+                  <span>나 </span>
+                  <span className='text-emerald-600'>react-animated-cursor</span>
+                  <span>같은 라이브러리를 그대로 사용할 수 있었기 때문에, 안드로이드와 IOS를 지원하는 </span>
+                  <span className='text-emerald-600'>v2</span>
+                  <span>
+                    으로의 정식 업데이트가 이루어진다면 새로운 앱을 개발하는데에 있어 상당한 편의성을 가질 것으로
+                    보입니다. <br />
+                    게다가{' '}
+                  </span>
+                  <span className='text-emerald-600'>rust</span>
+                  <span>를 기반으로, 해당 운영체제의 </span>
+                  <span className='text-emerald-600'>webview2</span>
+                  <span> 엔진을 사용하기에 </span>
+                  <span className='text-emerald-600'>electron</span>
+                  <span>과는 꽤 차이가 나는 성능 최적화를 보입니다.</span>
+                </div>
+              </WorkInfo>
+              <WorkInfo
+                index={7}
+                gitLink='https://github.com/everyt/react-web-clone1'
+                workImg={[
+                  '/images/React1.png',
+                  '/images/React2.png',
+                  '/images/React3.png',
+                  '/images/React4.png',
+                  '/images/React5.png',
+                ]}
+                workName='리액트 웹 클론'
+                workLore={
+                  <div className='whitespace-pre-wrap'>
+                    <span></span>
+                    <span className='text-emerald-500'>HTML과 CSS, JS</span>
+                    <span>의 기초를 다지고 나서 유튜브를 보고 따라한 </span>
+                    <span className='text-emerald-500'>React</span>
+                    <span>를 사용한 웹 클론 프로젝트입니다.</span>
+                  </div>
+                }>
+                <div className='whitespace-pre-wrap'>
+                  <span>
+                    아무것도 모르면서 무작정 코드 한줄 한줄 따라 타이핑하던 그때의 노력 덕분에, 지금 제가 앞으로 나아갈
+                    원동력을 얻었습니다.
+                    <br />
+                    특히 이 때, 어떻게 해야 웹을
+                  </span>
+                  <span className='text-emerald-600'> 반응형</span>
+                  <span>으로 제작할 수 있는지에 대한 지식을 상당히 얻었습니다.</span>
+                </div>
+              </WorkInfo>
+            </div>
+            <div className='flex min-w-[47vw] min-h-[90vh] flex-col items-baseline content-around justify-start xl:pr-24 lg:pr-20 md:pr-16 sm:pr-8 pr-4 mt-32'>
+              <div className='flex justify-start items-center font-black text-3xl md:text-4xl lg:text-5xl mb-32'>
+                <div className='whitespace-pre-wrap'>
+                  <span>→↓</span>
+                </div>
+              </div>
+              <WorkInfo
+                index={2}
                 gitLink='https://github.com/everyt/nextagram'
                 deployLink='https://everyt-1412.vercel.app/'
                 workImg='/images/Nextagram.webp'
@@ -89,7 +209,7 @@ function WorkView() {
                 </div>
               </WorkInfo>
               <WorkInfo
-                index={3}
+                index={4}
                 gitLink='https://github.com/everyt/princess-script'
                 workImg='/images/PrincessScript.png'
                 workName='프린세스 스크립트'
@@ -131,7 +251,7 @@ function WorkView() {
                 </div>
               </WorkInfo>
               <WorkInfo
-                index={5}
+                index={6}
                 gitLink='https://github.com/everyt/everyt-shop-next'
                 workImg={['/images/Shop1.gif', '/images/Shop2.png', '/images/Shop3.png', '/images/Shop4.png']}
                 workName='NEXTEA'
@@ -180,7 +300,7 @@ function WorkView() {
                 </div>
               </WorkInfo>
               <WorkInfo
-                index={7}
+                index={8}
                 gitLink='https://github.com/everyt/Tetris'
                 deployLink='https://everyt.github.io/Tetris/'
                 workImg='/images/Tetris.gif'
@@ -215,119 +335,6 @@ function WorkView() {
                     을 남기고 벌벌 떨었었던 기억이 있습니다. 왜냐하면 -6점을 얻은 질문이었으니까요. 덕분에 어떻게 질문을
                     해야 하는지, 어떻게 글을 써야 하는지에 대한 질문을 스스로에게 항상 하곤 합니다.
                   </span>
-                </div>
-              </WorkInfo>
-            </div>
-            <div className='flex min-w-[47vw] min-h-[90vh] flex-col items-baseline content-around justify-start xl:pr-24 lg:pr-20 md:pr-16 sm:pr-8 pr-4 mt-32'>
-              <div className='flex justify-start items-center font-black text-3xl md:text-4xl lg:text-5xl mb-32'>
-                <div className='whitespace-pre-wrap'>
-                  <span>→↓</span>
-                </div>
-              </div>
-              <WorkInfo
-                index={2}
-                gitLink='https://github.com/everyt/jsp_parkingLotManager'
-                workImg={[
-                  '/images/parkingLot1.png',
-                  '/images/parkingLot2.png',
-                  '/images/parkingLot3.png',
-                  '/images/parkingLot4.png',
-                  '/images/parkingLot5.png',
-                ]}
-                workName='주차장 관리 매니저'
-                workLore={
-                  <div className='whitespace-pre-wrap'>
-                    <span className='text-emerald-500'>JSP</span>
-                    <span>를 통해서 </span>
-                    <span className='text-emerald-500'>JDBC</span>
-                    <span>의 MySQL 드라이버로 통신하는 프로젝트입니다.</span>
-                  </div>
-                }>
-                <div className='whitespace-pre-wrap'>
-                  <span>
-                    그린컴퓨터아트학원에서 진행된 강의에서 기초를 다지기 위헤 처음부터 쌓아올린 코드입니다. 이를 통해
-                  </span>
-                  <span className='text-emerald-600'> 전자정부 프레임워크</span>
-                  <span>에서 필요로 하는 </span>
-                  <span className='text-emerald-600'>JAVA</span>
-                  <span>는 물론이고,</span>
-                  <span className='text-emerald-600'>JSP</span>
-                  <span>, </span>
-                  <span className='text-emerald-600'>Tomcat</span>
-                  <span>에 대한 이해도를 높일 수 있었습니다. 또한 </span>
-                  <span className='text-emerald-600'>관계형 데이터베이스</span>
-                  <span>
-                    에서 어떻게 데이터를 구성해야 하는지, 어떤 식으로 값을 참조해야 DB와의 연결을 최소화할 수 있는지
-                    같은 세부적인 지식을 얻을 수 있었기에 값어치가 크다고 생각합니다.
-                  </span>
-                </div>
-              </WorkInfo>
-              <WorkInfo
-                index={4}
-                gitLink='https://github.com/everyt/will-it-rain-tomorrow'
-                workImg='/images/WIRT.gif'
-                workName='내일은 비가 오려나'
-                workLore={
-                  <div className='whitespace-pre-wrap'>
-                    <span className='text-emerald-500'>Tauri</span>
-                    <span>를 이용해 </span>
-                    <span className='text-emerald-500'>Next.js</span>
-                    <span>로 게임의 일종인 비주얼 노벨을 구현 시도한 프로젝트입니다.</span>
-                  </div>
-                }>
-                <div className='whitespace-pre-wrap'>
-                  <span>
-                    개발이 복잡한 네이티브 앱에 비해서 프론트엔드 웹의 형태를 그대로 앱으로 옮길 수 있다는 것에서 큰
-                    매력을 느꼈습니다. <br />
-                    또한, 웹 그 자체이다 보니
-                  </span>
-                  <span className='text-emerald-600'> Redux</span>
-                  <span>나 </span>
-                  <span className='text-emerald-600'>react-animated-cursor</span>
-                  <span>같은 라이브러리를 그대로 사용할 수 있었기 때문에, 안드로이드와 IOS를 지원하는 </span>
-                  <span className='text-emerald-600'>v2</span>
-                  <span>
-                    으로의 정식 업데이트가 이루어진다면 새로운 앱을 개발하는데에 있어 상당한 편의성을 가질 것으로
-                    보입니다. <br />
-                    게다가{' '}
-                  </span>
-                  <span className='text-emerald-600'>rust</span>
-                  <span>를 기반으로, 해당 운영체제의 </span>
-                  <span className='text-emerald-600'>webview2</span>
-                  <span> 엔진을 사용하기에 </span>
-                  <span className='text-emerald-600'>electron</span>
-                  <span>과는 꽤 차이가 나는 성능 최적화를 보입니다.</span>
-                </div>
-              </WorkInfo>
-              <WorkInfo
-                index={6}
-                gitLink='https://github.com/everyt/react-web-clone1'
-                workImg={[
-                  '/images/React1.png',
-                  '/images/React2.png',
-                  '/images/React3.png',
-                  '/images/React4.png',
-                  '/images/React5.png',
-                ]}
-                workName='리액트 웹 클론'
-                workLore={
-                  <div className='whitespace-pre-wrap'>
-                    <span></span>
-                    <span className='text-emerald-500'>HTML과 CSS, JS</span>
-                    <span>의 기초를 다지고 나서 유튜브를 보고 따라한 </span>
-                    <span className='text-emerald-500'>React</span>
-                    <span>를 사용한 웹 클론 프로젝트입니다.</span>
-                  </div>
-                }>
-                <div className='whitespace-pre-wrap'>
-                  <span>
-                    아무것도 모르면서 무작정 코드 한줄 한줄 따라 타이핑하던 그때의 노력 덕분에, 지금 제가 앞으로 나아갈
-                    원동력을 얻었습니다.
-                    <br />
-                    특히 이 때, 어떻게 해야 웹을
-                  </span>
-                  <span className='text-emerald-600'> 반응형</span>
-                  <span>으로 제작할 수 있는지에 대한 지식을 상당히 얻었습니다.</span>
                 </div>
               </WorkInfo>
             </div>
