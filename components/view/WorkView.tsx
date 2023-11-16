@@ -6,6 +6,7 @@ import { useEffect, useState, memo } from 'react';
 import WorkSkeletonView from './WorkSkeletonView';
 import Image from 'next/image';
 import WorkChart from '../work/WorkChart';
+import WorkText from '../work/WorkText';
 
 function WorkView() {
   const [isMount, setIsMount] = useState(false);
@@ -27,7 +28,7 @@ function WorkView() {
         transition={{ ease: 'easeInOut', duration: 7 }}
       />
       <motion.div
-        className='fixed top-[43.3vh] left-[48vw] flex flex-col'
+        className='fixed top-[43.3vh] xl:left-[48vw] lg:left-[47vw] md:left-[46vw] sm:left-[44vw] left-[40vw] flex flex-col'
         initial={{ opacity: 1 }}
         animate={{ opacity: 0 }}
         transition={{ ease: 'easeInOut', duration: 4 }}>
@@ -41,7 +42,7 @@ function WorkView() {
         {isMount ? (
           <>
             <div className='flex min-w-[47vw] min-h-[90vh] flex-col items-baseline content-around justify-start xl:pl-20 lg:pl-16 md:pl-12 sm:pl-8 pl-4 z-[1]'>
-              <div className='flex justify-start items-center mb-12 font-black text-3xl md:text-4xl lg:text-5xl'>
+              <div className='flex justify-start items-center mb-12 font-black text-3xl md:text-4xl lg:text-[2.625rem] xl:text-5xl'>
                 <div className='flex items-center'>
                   <div className='whitespace-pre-wrap'>
                     <span className='text-red-400'>프</span>
@@ -51,7 +52,6 @@ function WorkView() {
                   <WorkChart />
                 </div>
               </div>
-
               <WorkInfo
                 index={3}
                 gitLink='https://github.com/everyt/jsp_parkingLotManager'
@@ -73,34 +73,42 @@ function WorkView() {
                     </span>
                   </div>
                 }>
-                <div className='whitespace-pre-wrap text-md font-normal'>
-                  <span>
-                    <span>
-                      <span className='text-red-400'>Goal:</span> 고도로 추상화되어있는 현대의{' '}
-                      <span className='text-emerald-600'>Java Spring</span>을 이해하기 위해 그 기술이 어디서 시작되었고,
-                      어떻게 구성되었는지 알아보고자 함.
-                    </span>
-                    <br />
-                    <span>
-                      <span className='text-red-400'>Stacks:</span> JSP, JDBC
-                    </span>
-                    <br />
-                    <span>
-                      <span className='text-red-400'>TrobuleShooting:</span>
-                      <br />
-                      1. JS의 사용에 상당한 제약이 뒤따름: JS 하나만으로는 서버와의 통신도 불가능하고, 무언가 액션을
-                      취하려면 무조건 페이지를 변경해야 했습니다. 따라서 스프링을 사용하지 않는 선에서 알고 있는 지식을
-                      최대한 짜내 JSP에서의 Java와 병행했습니다. <br />
-                      2. 변경이 실시간으로 반영되지 않음: 제일 고통스러운 문제인데, html을 수정하든 JS를 수정하든 CSS를
-                      수정하든 뭘 해도 서버에 반영이 되지 않아서 결과를 확인하기 위해 F5를 연타하고 있는 자신을 발견할
-                      수 있었습니다. ctrl+F5를 이용해 캐시를 날려버려도 새로고침이 되지 않을 때는, 번번하게 서버를
-                      껐다가 켜야만 문제를 해결할 수 있었습니다. 3. ES6 이상의 문법 사용에 애로사항이 꽃핌: 분명하게도
-                      JS는 브라우저에서 해석하는 스크립트 언어일지언데, 삼항연산자와 같은 최신 문법을 사용하면 동작하지
-                      않는 문제가 있었습니다. 따라서 일부러 비효율적이고 반복적인 코드를 반복해야 했지만, 그렇게 복잡한
-                      기능을 요구하지는 않았기 때문에 다른 무언가를 도입할 필요는 없었다고 생각합니다.
-                    </span>
-                  </span>
-                </div>
+                <WorkText
+                  label='Goal'
+                  value='#B#고도로 #G#추상화 #E#되어있는 현대의#G# Java Spring#E#을 이해하기 위해 그 기술이 어디서 시작되었고, 어떻게 구성되었는지 알아보고자 함.#E#'
+                  colon={true}
+                />
+                <WorkText label='Stacks' value='#G#JSP, JDBC#E#' colon={true} />
+                <WorkText
+                  label='Trobule shooting'
+                  value={
+                    <>
+                      <WorkText
+                        label='1. #B#프론트엔드와 백엔드가 구분되어 있지 않음#E#'
+                        value='JSP의 특성상, 무언가의 액션을 취하려면 페이지를 이동해야 했고, 이도 저도 아닌 어정쩡한 Java와 혼합해 사용해야 했습니다. 그래서 어째서 이런 기술이 등장하게 되었는지 찾아보게 되었고, 그 끝에 REST API가 있다는 걸 알게 되었습니다.'
+                        colon={true}
+                        fold={true}
+                        blank={false}
+                      />
+                      <WorkText
+                        label='2. #B#실시간으로 반영되지 않음#E#'
+                        value='현대적인 웹 개발에서는 수정한 내용이 개발 서버에 실시간으로 적용되어 무슨 에러가 있는지 확인하기 쉽기 때문에, JSP 웹 개발에서는 상당한 제약이 있다고 생각했습니다. 따라서 에러를 내지 않기 위한 반복적인 학습을 통한 문법과 알고리즘의 숙달을 넘어, 새로운 코드와 알고리즘을 작성하기 위해서는 컴퓨터 공학에 대한 이해도가 높아야 한다고 생각해 현재 가지고 있는 정보처리기능사 자격증을 넘어서 기사 자격증, 더 나아가 관련 학과에 진학할 필요성이 있다고 생각합니다.'
+                        colon={true}
+                        fold={true}
+                        blank={false}
+                      />
+                      <WorkText
+                        label='3. #B#ES6 이상의 문법 사용에 애로사항이 꽃핌#E#'
+                        value='분명하게도 JS는 브라우저에서 해석하는 스크립트 언어일지언데, 삼항연산자와 같은 최신 문법을 사용하면 동작하지 않는 문제가 있었습니whf다. 따라서 일부러 비효율적이고 반복적인 코드를 반복해야 했습니다. 이는 추후에 팀 프로젝트에서 타입스크립트를 도입하는 것으로 해결했습니다, 또한 웹팩과 같은 모듈 번들러를 통해서도 해결이 가능할 것으로 기대됩니다.'
+                        colon={true}
+                        fold={true}
+                        blank={false}
+                      />
+                    </>
+                  }
+                  colon={true}
+                  color={false}
+                />
               </WorkInfo>
               <WorkInfo
                 index={5}
@@ -109,34 +117,37 @@ function WorkView() {
                 workName='내일은 비가 오려나'
                 workLore={
                   <div className='whitespace-pre-wrap'>
-                    <span className='text-emerald-500'>Tauri</span>
-                    <span>를 이용해 </span>
-                    <span className='text-emerald-500'>Next.js</span>
-                    <span>로 게임의 일종인 비주얼 노벨을 구현 시도한 프로젝트입니다.</span>
+                    <span>
+                      <span className='text-emerald-500'>Tauri</span>를 이용해{' '}
+                      <span className='text-emerald-500'>Next.js</span>로 게임의 일종인 비주얼 노벨의 구현 시도
+                    </span>
                   </div>
                 }>
-                <div className='whitespace-pre-wrap'>
-                  <span>
-                    개발이 복잡한 네이티브 앱에 비해서 프론트엔드 웹의 형태를 그대로 앱으로 옮길 수 있다는 것에서 큰
-                    매력을 느꼈습니다. <br />
-                    또한, 웹 그 자체이다 보니
-                  </span>
-                  <span className='text-emerald-600'> Redux</span>
-                  <span>나 </span>
-                  <span className='text-emerald-600'>react-animated-cursor</span>
-                  <span>같은 라이브러리를 그대로 사용할 수 있었기 때문에, 안드로이드와 IOS를 지원하는 </span>
-                  <span className='text-emerald-600'>v2</span>
-                  <span>
-                    으로의 정식 업데이트가 이루어진다면 새로운 앱을 개발하는데에 있어 상당한 편의성을 가질 것으로
-                    보입니다. <br />
-                    게다가{' '}
-                  </span>
-                  <span className='text-emerald-600'>rust</span>
-                  <span>를 기반으로, 해당 운영체제의 </span>
-                  <span className='text-emerald-600'>webview2</span>
-                  <span> 엔진을 사용하기에 </span>
-                  <span className='text-emerald-600'>electron</span>
-                  <span>과는 꽤 차이가 나는 성능 최적화를 보입니다.</span>
+                <div className='whitespace-pre-wrap text-base font-normal'>
+                  <WorkText
+                    label='Goal'
+                    value='#B#네이티브 언어로 만들어진 앱을 대체할 수 있을 정도의 퀄리티를 가진 웹 앱 제작#E#'
+                    colon={true}
+                  />
+                  <WorkText
+                    label='Stacks'
+                    value='#G#Typescript, Prettier, Eslint<br />Next.js, React, Framer-motion, Tailwindcss<br />Tauri, Moment, Iconify, Yml#E#'
+                    colon={true}
+                  />
+                  <WorkText
+                    label='Trobule shooting'
+                    value={
+                      <>
+                        <WorkText
+                          label='1. #B#안정적인 스택이 아님#E#'
+                          value='새로운 기술은 그 특성상, 무언가를 시도하기에는 너무나 많은 장벽이 가로막고 있습니다.'
+                          colon={true}
+                        />
+                      </>
+                    }
+                    colon={true}
+                    color={false}
+                  />
                 </div>
               </WorkInfo>
               <WorkInfo
@@ -171,7 +182,7 @@ function WorkView() {
                 </div>
               </WorkInfo>
             </div>
-            <div className='flex min-w-[47vw] min-h-[90vh] flex-col items-baseline content-around justify-start xl:pr-24 lg:pr-20 md:pr-16 sm:pr-8 pr-4 mt-32'>
+            <div className='flex min-w-[47vw] min-h-[90vh] flex-col items-baseline content-around justify-start xl:pr-20 lg:pr-16 md:pr-12 sm:pr-4 mt-32'>
               <div className='flex justify-start items-center font-black text-3xl md:text-4xl lg:text-5xl mb-32'>
                 <div className='whitespace-pre-wrap'>
                   <span>→↓</span>

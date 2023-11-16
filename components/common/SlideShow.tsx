@@ -73,7 +73,15 @@ export default function SlideShow({ imgArr, height, width }: SlideShowProps) {
 
   return (
     <div className={`flex flex-col justify-center items-center h-full w-full relative`}>
-      <Image className='border-[1px]' src={imgArr[currentImg]} alt='SlideShow' width={width} height={height} />
+      <Image
+        className='border-[1px]'
+        src={imgArr[currentImg]}
+        blurDataURL={imgArr[currentImg]}
+        alt='SlideShow'
+        width={width}
+        height={height}
+        placeholder='blur'
+      />
       <div className='absolute bottom-2 flex items-center mt-2'>{bottomButtons()}</div>
     </div>
   );

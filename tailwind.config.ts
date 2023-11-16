@@ -15,6 +15,10 @@ const config: Config = {
         '68': '17rem',
         '76': '19rem',
       },
+      colors: {
+        'redishgray-500': 'rgb(110, 94, 104)',
+        'redishgray-800': 'rgb(84, 74, 83)',
+      },
     },
   },
   plugins: [],

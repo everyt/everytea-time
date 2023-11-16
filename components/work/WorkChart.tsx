@@ -9,7 +9,7 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip,
 
 const WorkChart = () => {
   return (
-    <div className='absolute ml-[12.6rem]'>
+    <div className='absolute xl:ml-[12.6rem] lg:ml-[10.08rem] md:ml-[7.56rem] sm:ml-[5.04rem] ml-[5.15rem]'>
       <Doughnut
         data={{
           labels: ['Jsp', 'SpringBoot', 'Javascript only', 'Next.js(React)', 'Node.js'],

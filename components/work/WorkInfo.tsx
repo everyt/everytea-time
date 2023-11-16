@@ -27,7 +27,7 @@ function WorkInfo({ index, gitLink, deployLink, workImg, workName, workLore, chi
   const workName_Chars = workName.slice(1, workName.length);
 
   return (
-    <div className='flex flex-col justify-start items-start p-3 rounded-xl bg-white shadow-xl sm:mx-2 md:mx-3 mb-12 w-[95%]'>
+    <div className='flex flex-col justify-start items-start p-3 rounded-xl bg-white shadow-xl sm:mx-2 md:mx-3 mb-12 w-[95%] text-redishgray-800'>
       <div className='flex justify-between w-full mb-3'>
         <div className='font-bold text-2xl'>
           <span>{index}. </span>
@@ -41,13 +41,21 @@ function WorkInfo({ index, gitLink, deployLink, workImg, workName, workLore, chi
       </div>
       <div>
         {typeof workImg === 'string' ? (
-          <Image className='border-[1px]' src={workImg} alt={workName} width={1920} height={1080} />
+          <Image
+            className='border-[1px]'
+            src={workImg}
+            blurDataURL={workImg}
+            alt={workName}
+            width={1920}
+            height={1080}
+            placeholder='blur'
+          />
         ) : (
           <SlideShow imgArr={workImg} width={1920} height={1080} />
         )}
       </div>
       <div className='mt-3 font-medium text-lg'>{workLore}</div>
-      <div className='font-extralight mt-3'>{children}</div>
+      <div className='whitespace-pre-wrap text-base font-extralight mt-3'>{children}</div>
     </div>
   );
 }
