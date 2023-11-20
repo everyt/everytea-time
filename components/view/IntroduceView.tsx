@@ -85,7 +85,7 @@ export default function IntroduceView() {
               <p className='text-5xl px-2 py-1'>&nbsp;</p>
             </motion.div>
             <span className='text-stone-50 text-5xl z-30 px-2 py-1 font-bold tracking-tight whitespace-nowrap'>
-              GWAK TAE WOONG
+              KWAK TAE WOONG
             </span>
             <motion.div
               className='bg-stone-700 my-16 absolute z-20 rounded-md'
