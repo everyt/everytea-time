@@ -64,17 +64,6 @@ export default function NavigationBar() {
           onClick={() => hyperlinkTo('/contacts')}>
           <Icon className='py-2 text-stone-700 text-[2.5rem]' icon='mingcute:contacts-2-line' />
         </motion.div>
-        <motion.div
-          whileHover={{
-            scale: 1.1,
-            transition: { duration: 0.3 },
-          }}
-          whileTap={{
-            scale: 0.8,
-          }}
-          onClick={() => hyperlinkTo('/works')}>
-          <Icon className='py-2 text-stone-700 text-[2.5rem]' icon='mingcute:sun-line' />
-        </motion.div>
       </motion.div>
       <div className='min-h-[100px] min-w-[6vw] sm:px-2 md:px-3' />
     </>

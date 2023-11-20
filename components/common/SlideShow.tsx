@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 
 type SlideShowProps = {
@@ -10,8 +10,24 @@ type SlideShowProps = {
 
 export default function SlideShow({ imgArr, height, width }: SlideShowProps) {
   const [currentImg, setCurrentImg] = useState(0);
+  const isMount = useRef(false);
 
   const count = imgArr.length;
+
+  useEffect(() => {
+    if (!isMount.current) {
+      isMount.current = true;
+      for (let i = 0; i < imgArr.length; i++) {
+        const element = document.querySelector('#showImage') as HTMLImageElement;
+        setTimeout(() => {
+          element.src = imgArr[i];
+        }, i * 10);
+        setTimeout(() => {
+          element.src = imgArr[0];
+        }, i + 1 * 10);
+      }
+    }
+  }, [isMount]);
 
   const handleChangeImg = (index: number) => {
     if (index > -1) {
@@ -74,6 +90,7 @@ export default function SlideShow({ imgArr, height, width }: SlideShowProps) {
   return (
     <div className={`flex flex-col justify-center items-center h-full w-full relative`}>
       <Image
+        id='showImage'
         className='border-[1px]'
         src={imgArr[currentImg]}
         blurDataURL={imgArr[currentImg]}

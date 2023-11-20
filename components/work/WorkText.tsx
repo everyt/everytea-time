@@ -13,6 +13,12 @@ type WorkTextProps = {
 const replaceMarkerToColor = (str: React.ReactNode) => {
   let resultStr = String(str);
 
+  if (resultStr.includes('#D2#')) {
+    resultStr = resultStr.replace(
+      /#D2#/g,
+      `<span style='letter-spacing: -0.039rem; font-size: 0.95rem; line-height: 1.1rem;'>`,
+    );
+  }
   if (resultStr.includes('#B#')) {
     resultStr = resultStr.replace(/#B#/g, `<span style='color: rgb(140, 124, 134); font-weight: 450'>`);
   }
