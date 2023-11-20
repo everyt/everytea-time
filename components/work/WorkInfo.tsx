@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import SlideShow from '../common/SlideShow';
-import { memo } from 'React';
+import { memo } from 'react';
 
 type WorkInfoProps = {
   index: number;

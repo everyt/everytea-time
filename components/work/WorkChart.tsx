@@ -2,7 +2,7 @@
 'use client';
 import { Chart as ChartJS, CategoryScale, LinearScale, Tooltip, PointElement, LineElement, ArcElement } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
-import { memo } from 'React';
+import { memo } from 'react';
 
 // Register ChartJS components using ChartJS.register
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, ArcElement);
