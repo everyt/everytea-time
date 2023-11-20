@@ -68,7 +68,7 @@ export default function ContactView() {
     return (
       <motion.div key={obj.text} className={`${baseCSS}`} whileHover={animation} onClick={() => hrefTo(obj.href)}>
         <div className={`rounded-md overflow-hidden ${obj.adobe}`}>
-          <Image src={`/stacks/${obj.text}.svg`} height={20} width={20} alt='' />
+          <Image src={`/stacks/${obj.text.toLowerCase()}.svg`} height={20} width={20} alt='' />
         </div>
         <span className={`ml-2 ${obj.textColor}`}>{obj.text}</span>
         {obj.secondText && <span className={`${obj.secondColor}`}>{obj.secondText}</span>}
