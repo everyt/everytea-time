@@ -3,9 +3,10 @@
 import { Icon } from '@iconify-icon/react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 export default function NavigationBar() {
+  const pathname = usePathname();
   const router = useRouter();
 
   const hyperlinkTo = (link: string) => {
@@ -40,7 +41,10 @@ export default function NavigationBar() {
             scale: 0.8,
           }}
           onClick={() => hyperlinkTo('/')}>
-          <Icon className='py-2 text-stone-700 text-[2.5rem]' icon='mingcute:home-4-line' />
+          <Icon
+            className='py-2 text-stone-700 text-[2.5rem]'
+            icon={`mingcute:home-4-${pathname === '/' ? 'line' : 'fill'}`}
+          />
         </motion.div>
         <motion.div
           whileHover={{
@@ -51,7 +55,10 @@ export default function NavigationBar() {
             scale: 0.8,
           }}
           onClick={() => hyperlinkTo('/works')}>
-          <Icon className='py-2 text-stone-700 text-[2.5rem]' icon='mingcute:box-3-line' />
+          <Icon
+            className='py-2 text-stone-700 text-[2.5rem]'
+            icon={`mingcute:box-3-${pathname === '/works' ? 'line' : 'fill'}`}
+          />
         </motion.div>
         <motion.div
           whileHover={{
@@ -62,7 +69,10 @@ export default function NavigationBar() {
             scale: 0.8,
           }}
           onClick={() => hyperlinkTo('/contacts')}>
-          <Icon className='py-2 text-stone-700 text-[2.5rem]' icon='mingcute:contacts-2-line' />
+          <Icon
+            className='py-2 text-stone-700 text-[2.5rem]'
+            icon={`mingcute:contacts-2-${pathname === '/contacts' ? 'line' : 'fill'}`}
+          />
         </motion.div>
       </motion.div>
       <div className='min-h-[100px] min-w-[6vw] sm:px-2 md:px-3' />
