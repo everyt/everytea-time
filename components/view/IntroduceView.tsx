@@ -100,13 +100,13 @@ export default function IntroduceView() {
           </div>
           <div className='relative' onClick={() => hyperlinkTo('/works')}>
             <motion.div
-              className='absolute bg-stone-700 h-24 w-24 rotate-45 z-20 cursor-pointer ml-20 sm:ml-8 rounded-md'
+              className='absolute bg-stone-700 invisible sm:visible h-24 w-24 rotate-45 z-20 cursor-pointer ml-10 sm:ml-8 rounded-md'
               initial={{ width: 0 }}
               animate={{ width: 100 }}
               transition={{ ease: 'easeInOut', duration: 2 }}></motion.div>
           </div>
           <div
-            className='text-stone-50 mt-[1.875rem] ml-[2.4rem] font-bold text-3xl z-30'
+            className='text-stone-700 sm:text-stone-50 mt-[1.875rem] ml-[2.4rem] font-bold text-3xl z-20 cursor-pointer'
             onClick={() => hyperlinkTo('/works')}>
             Next→
           </div>
