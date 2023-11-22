@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
+import { Analytics } from '@vercel/analytics/react';
 
 const SUIT = localFont({ variable: '--font-suit', src: '../public/font/SUIT-Variable.woff2' });
 
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div>
             {children}
             <FooterBar />
+            <Analytics />
           </div>
         </div>
       </body>
