@@ -237,7 +237,7 @@ function WorkView() {
                   <div className='whitespace-pre-wrap'>
                     <span>
                       <span className='text-emerald-500'>HTML과 CSS, JS</span>의 기초를 다지고 나서 유튜브를 보고 따라한
-                      <span className='text-emerald-500'>React</span>를 사용한 리액트 웹 클론 프로젝트
+                      <span className='text-emerald-500'> React</span>를 사용한 리액트 웹 클론 프로젝트
                     </span>
                   </div>
                 }>
