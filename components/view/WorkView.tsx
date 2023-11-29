@@ -75,7 +75,7 @@ function WorkView() {
                 }>
                 <WorkText
                   label='Goal'
-                  value='#G#협업#E##B#을 경험하고 어떠한 능력이 필요한지를 알아봄과 동시에 서블릿을 통한 #G#RESTfull API#E#의 구현과 통신을 통한 검증#E#'
+                  value='#G#협업#E##B#을 경험하고 어떠한 능력이 필요한지를 알아봄과 동시에 서블릿을 통한 #G#RESTful API#E#의 구현과 통신을 통한 검증#E#'
                   colon={true}
                 />
                 <WorkText label='Stacks' value='#G#JSP, JDBC, Spring, Typescript#E#' colon={true} />
@@ -99,7 +99,7 @@ function WorkView() {
                       />
                       <WorkText
                         label='3. #B#JSP의 한계#E#'
-                        value='#D2#이는 개인적으로 타입스크립트를 도입한 이유와도 일맥상통합니다.<br />이전에 홀로 진행했던 주차장 관리자에서도 느꼈듯이, RESTfull하지 않은 API나 서버에 대한 접근은 유지보수에 대한 상당한 애로를 만들어내기에 제 작업 분량 하에서는 전부 서블릿을 통해 갈아엎었습니다.#E#'
+                        value='#D2#이는 개인적으로 타입스크립트를 도입한 이유와도 일맥상통합니다.<br />이전에 홀로 진행했던 주차장 관리자에서도 느꼈듯이, RESTful하지 않은 API나 서버에 대한 접근은 유지보수에 대한 상당한 애로를 만들어내기에 제 작업 분량 하에서는 전부 서블릿을 통해 갈아엎었습니다.#E#'
                         colon={true}
                         fold={true}
                         blank={false}
